@@ -914,24 +914,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu关闭桌面GUI</title>
-    <url>/posts/13204/</url>
-    <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>永久开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
-
-<p>开启或关闭要重启系统之后才能看到效果</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu创建桌面快捷方式</title>
     <url>/posts/41178/</url>
     <content><![CDATA[<h2 id="创建桌面快捷方式"><a href="#创建桌面快捷方式" class="headerlink" title="创建桌面快捷方式"></a>创建桌面快捷方式</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>给IntelliJ Idea、Pytharm创建桌面快捷方式，打开终端，输入一下命令</p>
@@ -956,6 +938,24 @@
 <p>kde没有试过自行测试吧，估计创建的方式和 <a href="https://blog.csdn.net/qq_40354935/article/details/116775090">Ubuntu安装IntelliJ Idea及图标创建</a> 差不多</p>
 <p><img src="/posts/41178/xfce%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.png"></p>
 <hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu关闭桌面GUI</title>
+    <url>/posts/13204/</url>
+    <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>永久开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
+
+<p>开启或关闭要重启系统之后才能看到效果</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -1028,27 +1028,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装Java环境</title>
-    <url>/posts/58849/</url>
-    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
-<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
-<p>在配置环境变量：</p>
-<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
-
-<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu安装Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu安装Windows字体</title>
     <url>/posts/2636/</url>
     <content><![CDATA[<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><blockquote>
@@ -1073,6 +1052,27 @@
       </categories>
       <tags>
         <tag>Ubuntu安装字体</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装Java环境</title>
+    <url>/posts/58849/</url>
+    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
+<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
+<p>在配置环境变量：</p>
+<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
+
+<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu安装Java</tag>
       </tags>
   </entry>
   <entry>
