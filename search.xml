@@ -672,6 +672,159 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly主题所需要的运行插件</title>
+    <url>/posts/27760/</url>
+    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>修改主题的<code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录中的 <code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
+
+<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建个人博客，以及遇到的一些问题的解决方法</title>
+    <url>/posts/36259/</url>
+    <content><![CDATA[<h2 id="搭建个人博客，以及遇到的一些问题的解决方法"><a href="#搭建个人博客，以及遇到的一些问题的解决方法" class="headerlink" title="搭建个人博客，以及遇到的一些问题的解决方法"></a>搭建个人博客，以及遇到的一些问题的解决方法</h2><blockquote>
+<p><strong>参考：</strong></p>
+<p>搭建Hexo博客的方法：</p>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1Yb411a7ty?vd_source=207adfe24392140f033825e8f4537f32">CodeSheep</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Np4y1i7r5?vd_source=207adfe24392140f033825e8f4537f32">火车啦啦</a></li>
+</ol>
+<p>Hexo不显示图片问题解决方法：</p>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1D7411U7Yk?spm_id_from=333.337.search-card.all.click&vd_source=207adfe24392140f033825e8f4537f32">青苹果泡泡糖</a></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>视频教程（b站）：<a href="https://www.bilibili.com/video/BV1YV4y1H7DA/?vd_source=207adfe24392140f033825e8f4537f32">搭建Hexo博客（搭建过程中所遇到的问题以及解决方法）</a></p>
+</blockquote>
+<h2 id="搭建准备"><a href="#搭建准备" class="headerlink" title="搭建准备"></a>搭建准备</h2><p><strong>如果博客创建失败，那么就把自己的博客文件夹删掉重新配置就可以了，本Hexo博客是基于Gitee搭建的</strong></p>
+<p>首先要安装Git、Note.js、Python</p>
+<p>下载地址：git</p>
+<p>Git网址：<code>https://git-scm.com/</code> 默认会自动配置环境变量</p>
+<p>​	检查是否安装成功：git -v</p>
+<p>Node.js网址:<code>http://nodejs.cn/</code> 默认会自动配置环境变量</p>
+<p>​	检查是否安装成功：在终端输入node -v</p>
+<p>Python:<code>https://www.python.org/ </code>  安装Hexo不需要Python，但是有些主题的有些插件需要Python，所以安不安装都可以</p>
+<p>安装Python的方法</p>
+<p> <img src="/posts/36259/python%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.png"></p>
+<p>检查是否安装成功：在终端输入Python，要退出输入 <code>exit()</code> 即可退出</p>
+<hr>
+<p>这是Hexo中文官网：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a> </p>
+<h3 id="部署hexo环境"><a href="#部署hexo环境" class="headerlink" title="部署hexo环境"></a>部署hexo环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装淘宝的cnpm管理器</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org  </span><br><span class="line"></span><br><span class="line"><span class="comment">#查看cnpm版本，显示cnpm版本说明安装成功</span></span><br><span class="line">cnpm -v	   </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装hexo框架，作用和 npm install hexo-cli -g 命令一样</span></span><br><span class="line">cnpm install -g hexo-cli      </span><br><span class="line"></span><br><span class="line"><span class="comment">#查看hexo版本</span></span><br><span class="line">hexo -v	                      </span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后随便在什么地方创建一个文件夹，该文件夹是自己博客的载体，名字随意，我这里就命名为blog，进入blog目录中打开终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成博客所需的依赖文件的，cmd下载不行的话可以用Git Bash终端试试，但是Git Bash要cd到自己的博客目录里面</span></span><br><span class="line"><span class="comment"># cmd也是，否则会出现无法现在的情况，其中blog为自己博客</span></span><br><span class="line">hexo init	</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动本地博客服务</span></span><br><span class="line">hexo s	      </span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地访问的地址</span></span><br><span class="line">http://localhost:4000/	      </span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="创建自己的Gitee仓库"><a href="#创建自己的Gitee仓库" class="headerlink" title="创建自己的Gitee仓库"></a>创建自己的Gitee仓库</h2><p>首先要注册一个Gitee账号，然后在创建自己的Gitee仓库<img src="/posts/36259/%E5%88%9B%E5%BB%BAGitee%E4%BB%93%E5%BA%93.png"></p>
+<p>新建仓库页面可根据下图进行改写<img src="/posts/36259/Gitee%E4%BB%93%E5%BA%93%E8%B5%84%E6%96%99.png"></p>
+<p><strong>例子：因为我已经创建过了，所以在输入自己用户名的时候会显示已经存在，注意要点击初始化仓库</strong> <img src="/posts/36259/Gitee%E5%90%8D%E5%AD%97.png"></p>
+<h2 id="生成本地密钥"><a href="#生成本地密钥" class="headerlink" title="生成本地密钥"></a>生成本地密钥</h2><p>在cmd终端里面输入下面三行代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;自己博客的用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;自己的邮箱地址&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;自己的邮箱地址&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/36259/%E8%AE%BE%E7%BD%AE%E5%AF%86%E9%92%A5%E5%AF%86%E7%A0%81.png"></p>
+<p>生成的ssh密钥地址在 <code>C:\Users\Windows\.ssh</code>里面，用记事本打开 <code>id_rsa.pub</code> 这个文件，里面的的内容就是自己的密钥，我们需要把自己的密钥复制到自己的Gitee服务器里面</p>
+<p><img src="/posts/36259/%E9%83%A8%E7%BD%B2%E5%AF%86%E9%92%A5.png"></p>
+<h2 id="安装Git上传插件"><a href="#安装Git上传插件" class="headerlink" title="安装Git上传插件"></a>安装Git上传插件</h2><p><strong>在自己本地博客的根目录下打开cmd终端输入 <code>cnpm install hexo-deployer-git --save</code> 下载插件，如果不下载这个插件的话，就不能使用 <code>hexo d</code> 命令推送自己的博客到服务器上</strong></p>
+<h2 id="部署到仓库之前的准备"><a href="#部署到仓库之前的准备" class="headerlink" title="部署到仓库之前的准备"></a>部署到仓库之前的准备</h2><p><strong>因为Gitee Pages维护升级的缘故，所以Gitee Pages暂停对私有仓库的开通支持。当前已开通 Pages 服务的仓库更新不受影响，所以如果要使用Gitee Pages服务的话，需要把自己的仓库改为公有仓库！！！</strong> </p>
+<p><strong>注意：如果仓库不设置为开源，则无法使用Gitee Pages服务！！！</strong> </p>
+<p><img src="/posts/36259/GiteePages%E6%9C%8D%E5%8A%A1%E9%80%9A%E7%9F%A5.png"> </p>
+<p><strong>设置开源仓库的方法</strong> </p>
+<p><img src="/posts/36259/Gitee%E7%AE%A1%E7%90%86.png"></p>
+<p><img src="/posts/36259/Gitee%E5%BC%80%E6%BA%90%E4%BB%93%E5%BA%93.png"></p>
+<p><img src="/posts/36259/Gitee%E4%BB%93%E5%BA%93%E5%85%AC%E5%BC%80%E9%A1%BB%E7%9F%A5.png"></p>
+<h2 id="部署到仓库"><a href="#部署到仓库" class="headerlink" title="部署到仓库"></a>部署到仓库</h2><p><strong>记得在自己博客里的 <code>source\_posts</code> 文件夹里面放入文章，如果没有文章的话可能会导致自己的博客不能正常显示（有些主题是这样的）</strong></p>
+<p>首先复制自己部署的仓库地址，自己部署的仓库地址复制方法为<img src="/posts/36259/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9C%B0%E5%9D%80.png"></p>
+<p>然后打开自己博客根目录里的 _config.yml文件，滑到最下面，找到一个名为<strong>deploy</strong>的选项，下面有一个type的选项，在<strong>type那里输入git</strong>，<strong>注意</strong>git和冒号之间是有空格的 <code>type: git</code> ,然后换行，在type下面输入repo，该项是输入自己要部署的服务器地址 <code>repo: https://gitee.com/xxx.gitee.io.git</code> ，换行输入 <code>branch: master</code> </p>
+<p><img src="/posts/36259/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80.png"></p>
+<p><strong>开启Gitee Pages需要实名认证，审核差不多两个周，所以只能慢慢等；虽然Github不需要实名认证，但是Github的服务器在国外，所以速度就得不到保证了，CDN加速除外。。。</strong></p>
+<p><img src="/posts/36259/GiteePages.png"></p>
+<p><img src="/posts/36259/GiteePages%E5%90%AF%E5%8A%A8.png"></p>
+<p><img src="/posts/36259/%E6%9B%B4%E6%96%B0GiteePages.png"></p>
+<p>然后在博客的根目录下打开终端输入部署代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl					//清理hexo缓存的</span><br><span class="line">hexo g					//生成网页所需的文件</span><br><span class="line">hexo d					//部署到服务器上</span><br></pre></td></tr></table></figure>
+
+<p>第一次上传博客时需要输入自己的Gitee账号和密码，第一次输入之后，以后就可以不用在输入了<img src="/posts/36259/%E7%99%BB%E5%BD%95Gitee%E4%BB%93%E5%BA%93%E8%B4%A6%E6%88%B7%E5%AF%86%E7%A0%81.png"></p>
+<p>这样自己的博客就部署到仓库上了，在更新一下Gitee Pages就可以了，然后在点击 <strong><code>已开启Gitee Pages服务，网站地址</code></strong> 旁边的那个网址，如果没有显示自己的博客，刷新一下就可以了</p>
+<p><img src="/posts/36259/%E6%9B%B4%E6%96%B0GiteePages.png"></p>
+<h2 id="安装Hexo博客主题"><a href="#安装Hexo博客主题" class="headerlink" title="安装Hexo博客主题"></a>安装Hexo博客主题</h2><p>一般每个主题都会有一个GitHub仓库以及配置文档，上面有详细的安装方法，以及要安装的插件，每个主题安装的方法略有不同，但是大差不差，基本流程：</p>
+<ol>
+<li><p>在自己博客的根目录下，把下载好的主题包 <em><strong>解压</strong></em> 并移到一个名为 <em><strong>themes</strong></em> 的文件夹下，然后在回到根目录下，编辑一个叫 <strong>_config.yml</strong> 的配置文件，打开这个文件，找到 <strong>theme</strong> 选项，输入你<strong>要配置的主题的名字</strong>，<em><strong>注意</strong></em> 选项与名字之间要有空格，例：<code>theme: 主题名称</code> </p>
+</li>
+<li><p>编辑好 <strong>_config.yml</strong> 的配置文件之后，按快捷键 <strong>ctrl+s</strong> 保存即可，然后在回到根目录上，打开终端，输入命令 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果运行过程中没有显示红色的字体</strong>就说明你的博客没有什么问题，此时终端会显示一串网址 <code>http://localhost:4000</code> 在浏览器中输入这串网址即可预览自己的博客，如果想停止访问的话，在终端里面按快捷键 <code>ctrl+c</code> 即可退出，如果终端提示 <code>终止批处理操作吗(Y/N)?</code> 输入 <code>Y</code> 即可。</p>
+</li>
+</ol>
+<h2 id="博客上无法显示图片"><a href="#博客上无法显示图片" class="headerlink" title="博客上无法显示图片"></a>博客上无法显示图片</h2><p>首先在 <code>blog/source/_posts</code>目录下创建一个文件夹，专门用来放图片的，然后在创建一个md文件，而且 <strong><em>md文件的名字</em> 要和 <em>图片文件夹的名字</em> 相同</strong></p>
+<p><img src="/posts/36259/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%89%80%E9%9C%80%E7%9A%84%E6%96%87%E4%BB%B6.png"></p>
+<p>然后在blog根目录下打开终端输入命令 <code>cnpm install https://github.com/CodeFalling/hexo-asset-image --save</code> 下载插件</p>
+<p>下载好之后，在blog根目录中打开 <code>_config.yml</code>，找到<code>post_asset_folder</code>，把他设置为设为<code>true</code>，在md文件上输入 <code>![](这里输入图片的相对路径)</code> 此时的图片就可以在网页上打开了，如果没有显示刷新一下试试</p>
+<p>例如：我的<code>image</code>文件夹里面的图片，有一张<code>ceshi.png</code>，我要上传名字为 <code>ceshi.png</code> 的图片</p>
+<p><img src="/posts/36259/%E6%8A%8A%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%88%B0%E5%8D%9A%E5%AE%A2%E4%B8%8A.png"></p>
+<p>那么我在md文件里面就输入 <code>![](image/ceshi.png)</code> 这样自己的博客就可以看到图片了，刚开始打开博客可能不会显示，刷新一下就可以了</p>
+<p>一般部署到GitHub上是没有问题了，但是Gitee可能还会存在一些问题，这时候就要看你的仓库的名字和你路径的名字是否一样，名字强烈推荐自己的博客名（否则可能会有一些莫名其妙的问题），比如我的博客名是<code>mao-design</code>，那么仓库名和路径字也必须是<code>mao-design</code></p>
+<p><img src="/posts/36259/Gitee%E5%9F%9F%E5%90%8D%E6%98%BE%E7%A4%BA.png"></p>
+<p>当初我就是因为博客名不一样导致图片不能正常显示的，这也是问题之一</p>
+<p>不出意外的话，自己博客上就可看到图片了</p>
+<p><strong>注意，存放图片文件夹的名称和md文件的名称要一样，也就是只要名字一样随便什么名字都可以</strong></p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>每次把自己的博客部署到服务器上都要输入那三行命令，很麻烦，所以可以在blog根目录下创建一个bat文件，在bat文件里面输入 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code> 这行代码，以后要部署的时候双击bat文件就可以自动部署了；以此类推，预览也可以这样。</p>
+<hr>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="安装-yarn-软件包管理器"><a href="#安装-yarn-软件包管理器" class="headerlink" title="安装  yarn 软件包管理器"></a>安装  yarn 软件包管理器</h3><p>在自己的博客文件夹里面打开终端，输入以下三行命令即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>美化Gnome桌面</title>
     <url>/posts/64330/</url>
     <content><![CDATA[<h2 id="美化（Gnome桌面）"><a href="#美化（Gnome桌面）" class="headerlink" title="美化（Gnome桌面）"></a>美化（Gnome桌面）</h2><blockquote>
@@ -1334,159 +1487,6 @@
       </categories>
       <tags>
         <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Butterfly主题所需要的运行插件</title>
-    <url>/posts/27760/</url>
-    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>修改主题的<code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录中的 <code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
-
-<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建个人博客，以及遇到的一些问题的解决方法</title>
-    <url>/posts/36259/</url>
-    <content><![CDATA[<h2 id="搭建个人博客，以及遇到的一些问题的解决方法"><a href="#搭建个人博客，以及遇到的一些问题的解决方法" class="headerlink" title="搭建个人博客，以及遇到的一些问题的解决方法"></a>搭建个人博客，以及遇到的一些问题的解决方法</h2><blockquote>
-<p><strong>参考：</strong></p>
-<p>搭建Hexo博客的方法：</p>
-<ol>
-<li><a href="https://www.bilibili.com/video/BV1Yb411a7ty?vd_source=207adfe24392140f033825e8f4537f32">CodeSheep</a></li>
-<li><a href="https://www.bilibili.com/video/BV1Np4y1i7r5?vd_source=207adfe24392140f033825e8f4537f32">火车啦啦</a></li>
-</ol>
-<p>Hexo不显示图片问题解决方法：</p>
-<ol>
-<li><a href="https://www.bilibili.com/video/BV1D7411U7Yk?spm_id_from=333.337.search-card.all.click&vd_source=207adfe24392140f033825e8f4537f32">青苹果泡泡糖</a></li>
-</ol>
-</blockquote>
-<blockquote>
-<p>视频教程（b站）：<a href="https://www.bilibili.com/video/BV1YV4y1H7DA/?vd_source=207adfe24392140f033825e8f4537f32">搭建Hexo博客（搭建过程中所遇到的问题以及解决方法）</a></p>
-</blockquote>
-<h2 id="搭建准备"><a href="#搭建准备" class="headerlink" title="搭建准备"></a>搭建准备</h2><p><strong>如果博客创建失败，那么就把自己的博客文件夹删掉重新配置就可以了，本Hexo博客是基于Gitee搭建的</strong></p>
-<p>首先要安装Git、Note.js、Python</p>
-<p>下载地址：git</p>
-<p>Git网址：<code>https://git-scm.com/</code> 默认会自动配置环境变量</p>
-<p>​	检查是否安装成功：git -v</p>
-<p>Node.js网址:<code>http://nodejs.cn/</code> 默认会自动配置环境变量</p>
-<p>​	检查是否安装成功：在终端输入node -v</p>
-<p>Python:<code>https://www.python.org/ </code>  安装Hexo不需要Python，但是有些主题的有些插件需要Python，所以安不安装都可以</p>
-<p>安装Python的方法</p>
-<p> <img src="/posts/36259/python%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.png"></p>
-<p>检查是否安装成功：在终端输入Python，要退出输入 <code>exit()</code> 即可退出</p>
-<hr>
-<p>这是Hexo中文官网：<a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a> </p>
-<h3 id="部署hexo环境"><a href="#部署hexo环境" class="headerlink" title="部署hexo环境"></a>部署hexo环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装淘宝的cnpm管理器</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org  </span><br><span class="line"></span><br><span class="line"><span class="comment">#查看cnpm版本，显示cnpm版本说明安装成功</span></span><br><span class="line">cnpm -v	   </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装hexo框架，作用和 npm install hexo-cli -g 命令一样</span></span><br><span class="line">cnpm install -g hexo-cli      </span><br><span class="line"></span><br><span class="line"><span class="comment">#查看hexo版本</span></span><br><span class="line">hexo -v	                      </span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后随便在什么地方创建一个文件夹，该文件夹是自己博客的载体，名字随意，我这里就命名为blog，进入blog目录中打开终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成博客所需的依赖文件的，cmd下载不行的话可以用Git Bash终端试试，但是Git Bash要cd到自己的博客目录里面</span></span><br><span class="line"><span class="comment"># cmd也是，否则会出现无法现在的情况，其中blog为自己博客</span></span><br><span class="line">hexo init	</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动本地博客服务</span></span><br><span class="line">hexo s	      </span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地访问的地址</span></span><br><span class="line">http://localhost:4000/	      </span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="创建自己的Gitee仓库"><a href="#创建自己的Gitee仓库" class="headerlink" title="创建自己的Gitee仓库"></a>创建自己的Gitee仓库</h2><p>首先要注册一个Gitee账号，然后在创建自己的Gitee仓库<img src="/posts/36259/%E5%88%9B%E5%BB%BAGitee%E4%BB%93%E5%BA%93.png"></p>
-<p>新建仓库页面可根据下图进行改写<img src="/posts/36259/Gitee%E4%BB%93%E5%BA%93%E8%B5%84%E6%96%99.png"></p>
-<p><strong>例子：因为我已经创建过了，所以在输入自己用户名的时候会显示已经存在，注意要点击初始化仓库</strong> <img src="/posts/36259/Gitee%E5%90%8D%E5%AD%97.png"></p>
-<h2 id="生成本地密钥"><a href="#生成本地密钥" class="headerlink" title="生成本地密钥"></a>生成本地密钥</h2><p>在cmd终端里面输入下面三行代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;自己博客的用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;自己的邮箱地址&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;自己的邮箱地址&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/posts/36259/%E8%AE%BE%E7%BD%AE%E5%AF%86%E9%92%A5%E5%AF%86%E7%A0%81.png"></p>
-<p>生成的ssh密钥地址在 <code>C:\Users\Windows\.ssh</code>里面，用记事本打开 <code>id_rsa.pub</code> 这个文件，里面的的内容就是自己的密钥，我们需要把自己的密钥复制到自己的Gitee服务器里面</p>
-<p><img src="/posts/36259/%E9%83%A8%E7%BD%B2%E5%AF%86%E9%92%A5.png"></p>
-<h2 id="安装Git上传插件"><a href="#安装Git上传插件" class="headerlink" title="安装Git上传插件"></a>安装Git上传插件</h2><p><strong>在自己本地博客的根目录下打开cmd终端输入 <code>cnpm install hexo-deployer-git --save</code> 下载插件，如果不下载这个插件的话，就不能使用 <code>hexo d</code> 命令推送自己的博客到服务器上</strong></p>
-<h2 id="部署到仓库之前的准备"><a href="#部署到仓库之前的准备" class="headerlink" title="部署到仓库之前的准备"></a>部署到仓库之前的准备</h2><p><strong>因为Gitee Pages维护升级的缘故，所以Gitee Pages暂停对私有仓库的开通支持。当前已开通 Pages 服务的仓库更新不受影响，所以如果要使用Gitee Pages服务的话，需要把自己的仓库改为公有仓库！！！</strong> </p>
-<p><strong>注意：如果仓库不设置为开源，则无法使用Gitee Pages服务！！！</strong> </p>
-<p><img src="/posts/36259/GiteePages%E6%9C%8D%E5%8A%A1%E9%80%9A%E7%9F%A5.png"> </p>
-<p><strong>设置开源仓库的方法</strong> </p>
-<p><img src="/posts/36259/Gitee%E7%AE%A1%E7%90%86.png"></p>
-<p><img src="/posts/36259/Gitee%E5%BC%80%E6%BA%90%E4%BB%93%E5%BA%93.png"></p>
-<p><img src="/posts/36259/Gitee%E4%BB%93%E5%BA%93%E5%85%AC%E5%BC%80%E9%A1%BB%E7%9F%A5.png"></p>
-<h2 id="部署到仓库"><a href="#部署到仓库" class="headerlink" title="部署到仓库"></a>部署到仓库</h2><p><strong>记得在自己博客里的 <code>source\_posts</code> 文件夹里面放入文章，如果没有文章的话可能会导致自己的博客不能正常显示（有些主题是这样的）</strong></p>
-<p>首先复制自己部署的仓库地址，自己部署的仓库地址复制方法为<img src="/posts/36259/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%9C%B0%E5%9D%80.png"></p>
-<p>然后打开自己博客根目录里的 _config.yml文件，滑到最下面，找到一个名为<strong>deploy</strong>的选项，下面有一个type的选项，在<strong>type那里输入git</strong>，<strong>注意</strong>git和冒号之间是有空格的 <code>type: git</code> ,然后换行，在type下面输入repo，该项是输入自己要部署的服务器地址 <code>repo: https://gitee.com/xxx.gitee.io.git</code> ，换行输入 <code>branch: master</code> </p>
-<p><img src="/posts/36259/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%B0%E5%9D%80.png"></p>
-<p><strong>开启Gitee Pages需要实名认证，审核差不多两个周，所以只能慢慢等；虽然Github不需要实名认证，但是Github的服务器在国外，所以速度就得不到保证了，CDN加速除外。。。</strong></p>
-<p><img src="/posts/36259/GiteePages.png"></p>
-<p><img src="/posts/36259/GiteePages%E5%90%AF%E5%8A%A8.png"></p>
-<p><img src="/posts/36259/%E6%9B%B4%E6%96%B0GiteePages.png"></p>
-<p>然后在博客的根目录下打开终端输入部署代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl					//清理hexo缓存的</span><br><span class="line">hexo g					//生成网页所需的文件</span><br><span class="line">hexo d					//部署到服务器上</span><br></pre></td></tr></table></figure>
-
-<p>第一次上传博客时需要输入自己的Gitee账号和密码，第一次输入之后，以后就可以不用在输入了<img src="/posts/36259/%E7%99%BB%E5%BD%95Gitee%E4%BB%93%E5%BA%93%E8%B4%A6%E6%88%B7%E5%AF%86%E7%A0%81.png"></p>
-<p>这样自己的博客就部署到仓库上了，在更新一下Gitee Pages就可以了，然后在点击 <strong><code>已开启Gitee Pages服务，网站地址</code></strong> 旁边的那个网址，如果没有显示自己的博客，刷新一下就可以了</p>
-<p><img src="/posts/36259/%E6%9B%B4%E6%96%B0GiteePages.png"></p>
-<h2 id="安装Hexo博客主题"><a href="#安装Hexo博客主题" class="headerlink" title="安装Hexo博客主题"></a>安装Hexo博客主题</h2><p>一般每个主题都会有一个GitHub仓库以及配置文档，上面有详细的安装方法，以及要安装的插件，每个主题安装的方法略有不同，但是大差不差，基本流程：</p>
-<ol>
-<li><p>在自己博客的根目录下，把下载好的主题包 <em><strong>解压</strong></em> 并移到一个名为 <em><strong>themes</strong></em> 的文件夹下，然后在回到根目录下，编辑一个叫 <strong>_config.yml</strong> 的配置文件，打开这个文件，找到 <strong>theme</strong> 选项，输入你<strong>要配置的主题的名字</strong>，<em><strong>注意</strong></em> 选项与名字之间要有空格，例：<code>theme: 主题名称</code> </p>
-</li>
-<li><p>编辑好 <strong>_config.yml</strong> 的配置文件之后，按快捷键 <strong>ctrl+s</strong> 保存即可，然后在回到根目录上，打开终端，输入命令 </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果运行过程中没有显示红色的字体</strong>就说明你的博客没有什么问题，此时终端会显示一串网址 <code>http://localhost:4000</code> 在浏览器中输入这串网址即可预览自己的博客，如果想停止访问的话，在终端里面按快捷键 <code>ctrl+c</code> 即可退出，如果终端提示 <code>终止批处理操作吗(Y/N)?</code> 输入 <code>Y</code> 即可。</p>
-</li>
-</ol>
-<h2 id="博客上无法显示图片"><a href="#博客上无法显示图片" class="headerlink" title="博客上无法显示图片"></a>博客上无法显示图片</h2><p>首先在 <code>blog/source/_posts</code>目录下创建一个文件夹，专门用来放图片的，然后在创建一个md文件，而且 <strong><em>md文件的名字</em> 要和 <em>图片文件夹的名字</em> 相同</strong></p>
-<p><img src="/posts/36259/%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%89%80%E9%9C%80%E7%9A%84%E6%96%87%E4%BB%B6.png"></p>
-<p>然后在blog根目录下打开终端输入命令 <code>cnpm install https://github.com/CodeFalling/hexo-asset-image --save</code> 下载插件</p>
-<p>下载好之后，在blog根目录中打开 <code>_config.yml</code>，找到<code>post_asset_folder</code>，把他设置为设为<code>true</code>，在md文件上输入 <code>![](这里输入图片的相对路径)</code> 此时的图片就可以在网页上打开了，如果没有显示刷新一下试试</p>
-<p>例如：我的<code>image</code>文件夹里面的图片，有一张<code>ceshi.png</code>，我要上传名字为 <code>ceshi.png</code> 的图片</p>
-<p><img src="/posts/36259/%E6%8A%8A%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%88%B0%E5%8D%9A%E5%AE%A2%E4%B8%8A.png"></p>
-<p>那么我在md文件里面就输入 <code>![](image/ceshi.png)</code> 这样自己的博客就可以看到图片了，刚开始打开博客可能不会显示，刷新一下就可以了</p>
-<p>一般部署到GitHub上是没有问题了，但是Gitee可能还会存在一些问题，这时候就要看你的仓库的名字和你路径的名字是否一样，名字强烈推荐自己的博客名（否则可能会有一些莫名其妙的问题），比如我的博客名是<code>mao-design</code>，那么仓库名和路径字也必须是<code>mao-design</code></p>
-<p><img src="/posts/36259/Gitee%E5%9F%9F%E5%90%8D%E6%98%BE%E7%A4%BA.png"></p>
-<p>当初我就是因为博客名不一样导致图片不能正常显示的，这也是问题之一</p>
-<p>不出意外的话，自己博客上就可看到图片了</p>
-<p><strong>注意，存放图片文件夹的名称和md文件的名称要一样，也就是只要名字一样随便什么名字都可以</strong></p>
-<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>每次把自己的博客部署到服务器上都要输入那三行命令，很麻烦，所以可以在blog根目录下创建一个bat文件，在bat文件里面输入 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code> 这行代码，以后要部署的时候双击bat文件就可以自动部署了；以此类推，预览也可以这样。</p>
-<hr>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="安装-yarn-软件包管理器"><a href="#安装-yarn-软件包管理器" class="headerlink" title="安装  yarn 软件包管理器"></a>安装  yarn 软件包管理器</h3><p>在自己的博客文件夹里面打开终端，输入以下三行命令即可</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
