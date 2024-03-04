@@ -672,6 +672,102 @@
       </tags>
   </entry>
   <entry>
+    <title>美化Gnome桌面</title>
+    <url>/posts/64330/</url>
+    <content><![CDATA[<h2 id="美化（Gnome桌面）"><a href="#美化（Gnome桌面）" class="headerlink" title="美化（Gnome桌面）"></a>美化（Gnome桌面）</h2><blockquote>
+<p>参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/63584709">Ubuntu美化优化指导</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/409493039">Ubuntu下Gnome界面美化、超好用插件</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/71588449">Ubuntu18.04(Gnome)环境，十分钟配置Mac OS主题 </a></li>
+</ol>
+</blockquote>
+<p>美化虽然不是必须的，但是美化可以让系统的使用效率变得更高，比如终端美化，有些Linux终端并没有代码补全这个功能，但是美化之后就可以让终端添加代码补全这个功能，这样在终端中输入命令的效率则更会更高。</p>
+<hr>
+<p>在这里推荐一款主题（包含图标包）：Gnome主题包 <a href="https://www.aliyundrive.com/s/XCv3ZVwexym">https://www.aliyundrive.com/s/XCv3ZVwexym</a> 提取码: sz81</p>
+<hr>
+<h3 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h3><p>首先打开系统自带的火狐浏览器下载浏览器插件，插件名称叫 <code>GNOME Shell integration</code>，别的浏览器也可以，只不过火狐下载插件方便一点 <img src="/posts/64330/Gnome%E9%9B%86%E6%88%90%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6.png" alt="GNOME Shell integration"></p>
+<p>然后在打开终端输入以下三个命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update									  //更新软件源</span><br><span class="line">sudo apt-get install gnome-tweak-tool				//安装Gnome主题设置软件</span><br><span class="line">sudo apt-get install chrome-gnome-shell				//安装Gnome-shell插件</span><br></pre></td></tr></table></figure>
+
+<p>其他的Linux安装 <code>Gnome-shell</code> 请查看 <a href="https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&redirect=Projects/GnomeShellIntegrationForChrome/Installation">Gnome-shell插件安装指南</a> </p>
+<p>然后在点击火狐浏览器上刚刚下载的扩展（GNOME Shell integration），开启 User Themes </p>
+<p> <img src="/posts/64330/%E6%89%93%E5%BC%80UserThemes.png" alt="User Themes"></p>
+<p>这样你就可以更换主题了，然后进入Gnome主题网站下载自己喜欢的主题就可以了，Gnome主题网站地址：<a href="https://www.gnome-look.org/s/Gnome/browse/">GNOME-LOOK.ORG</a> ，在主题的下载目录里面打开终端，<strong>输入命令 <code>mkdir ~/.themes</code></strong> ,该命令的意思是在家目录里面创建一个名为 <code>.themes</code> 的文件夹。</p>
+<p>然后在把你的主题包文件夹移动到 <code>.themes</code> 文件夹里面就可以了。</p>
+<p>比如我的主题包放在 <code>文档</code> 这个文件夹下，那么我就在这个文件夹下打开终端，输入命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> 你的主题包文件夹的名字/* ~/.themes/</span><br></pre></td></tr></table></figure>
+
+<p>这个命令的意思是把你的主题文件夹下的所有文件移动到家目录下的<code>.themes</code> 文件夹下</p>
+<p>然后打开优化（Tweaks）</p>
+<p> <img src="/posts/64330/Gnome-Tools.png"></p>
+<p>然后点击外观，应用程序那里是你软件打开时的外观样式，Shell是系统主题外观样式</p>
+<hr>
+<h3 id="更改图标"><a href="#更改图标" class="headerlink" title="更改图标"></a>更改图标</h3><p>比如我的图标包放在 <code>文档</code> 这个文件夹下，那么我就在这个文件夹下打开终端，又因为系统的图标包都是存放在 <code>/usr/share/icons</code> 这个文件夹下的，所以要把自己下载的图标包移动到 <code>icons</code> 这个文件夹下，输入命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> 你的图标包文件夹的名字/* /usr/share/icons</span><br></pre></td></tr></table></figure>
+
+<p>该命令的意思是把你的图标文件夹下的所有文件都移动到根目录下的usr目录下的share目录下的icons目录下。</p>
+<p>然后打开优化（Tweaks）</p>
+<p> <img src="/posts/64330/Gnome-Tools.png"></p>
+<p>然后点击外观，图标那行是你的图标外观样式</p>
+<hr>
+<h3 id="更改终端主题"><a href="#更改终端主题" class="headerlink" title="更改终端主题"></a>更改终端主题</h3><blockquote>
+<p>参考：<a href="https://juejin.cn/post/7089257391740420109">Oh-my-zsh的安装、配置与卸载</a></p>
+</blockquote>
+<hr>
+<h4 id="安装终端主题"><a href="#安装终端主题" class="headerlink" title="安装终端主题"></a>安装终端主题</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//安装git</span><br><span class="line">sudo apt install git</span><br><span class="line">//安装vim</span><br><span class="line">sudo apt install vim</span><br><span class="line">//安装zsh	</span><br><span class="line">sudo apt install zsh						</span><br><span class="line">//安装Oh my zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)</span>&quot;</span>			</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">sudo vim .zshrc</span><br></pre></td></tr></table></figure>
+
+<p>然后修改自己的主题，如果不知道喜欢那个主题，则可以在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">Oh my zsh Wiki</a> 上查找，这个网站上有许多终端主题样式的图片以及对应的名字，只需要把主题的名字写入双引号内即可，在输入 <code>wq!</code> 即可保存退出，注意上面的所有符号都是英文版的</p>
+<p> <img src="/posts/64330/%E6%9B%B4%E6%94%B9%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98.png"></p>
+<p>然后重启终端，则会发现终端主题已经变成你输入的那个终端主题了</p>
+<hr>
+<h4 id="终端命令补全"><a href="#终端命令补全" class="headerlink" title="终端命令补全"></a>终端命令补全</h4><p><strong>zsh-autosuggestions</strong></p>
+<p>第一步：切换到oh-my-zsh的plugins目录下，然后下载自动提示插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins/</span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/zsh-users/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>第二步：编辑隐藏文件~&#x2F;.zshrc，找到<code>plugins=(git)</code>这一行，然后在git后面添加 <code>zsh-autosuggestions</code> </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+
+<p>第三步：让~&#x2F;.zshrc配置生效，执行如下命令（或者重启item2也行）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="终端语法高亮"><a href="#终端语法高亮" class="headerlink" title="终端语法高亮"></a>终端语法高亮</h4><p><strong>zsh-syntax-highlighting</strong></p>
+<ol>
+<li><p>克隆代码到$ZSH_CUSTOM&#x2F;plugins（默认位于~&#x2F;.oh-my-zsh&#x2F;custom&#x2F;plugins）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/imirror/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在Oh My Zsh配置启用插件</p>
+<p>打开 <code>~/.zshrc</code> ，找到 <code>plugins</code> ，添加 <code>zsh-autosuggestions</code>。<br>编辑 <code>~/.zshrc</code>：<code>vim ~/.zshrc</code><br><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</code><br>使配置生效：source ~&#x2F;.zshrc</p>
+</li>
+</ol>
+<hr>
+<h4 id="卸载Oh-my-zsh"><a href="#卸载Oh-my-zsh" class="headerlink" title="卸载Oh my zsh"></a>卸载Oh my zsh</h4><p>进入到.oh-my-zsh&#x2F;tools目录</p>
+<ul>
+<li><code>cd .oh-my-zsh/tools</code></li>
+<li><code>chmod +x uninstall.sh</code></li>
+<li>.&#x2F;uninstall.sh</li>
+<li><code>rm -rif .zshrc</code></li>
+</ul>
+<hr>
+<h3 id="Gnome扩展推荐"><a href="#Gnome扩展推荐" class="headerlink" title="Gnome扩展推荐"></a>Gnome扩展推荐</h3><p>Gnome扩展下载网址：<a href="https://extensions.gnome.org/">GNOME Shell扩展网站</a></p>
+<ol>
+<li>Removable Drive Menu：U盘快速操作。插入U盘或移动硬盘，可以执行打开、弹出等操作</li>
+<li>Workspace Indicator：多窗口管理器</li>
+<li>TopIcons Plus：解决QQ（Wine），微信（Wine）状态栏显示不正常的问题，参考 <a href="https://blog.csdn.net/Steven_Start/article/details/117379049">Ubuntu20.04安装微信详细步骤，解决显示异常，无法显示输入内容问题和状态栏问题</a></li>
+<li>system-monitor：系统资源显示</li>
+<li>Screenshot Tool：截图工具</li>
+<li>Clipboard Indicator：剪贴板</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Gnome美化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux压缩以及解压文件命令</title>
     <url>/posts/8868/</url>
     <content><![CDATA[<h2 id="Ubuntu上解压压缩文件的几种解压方法"><a href="#Ubuntu上解压压缩文件的几种解压方法" class="headerlink" title="Ubuntu上解压压缩文件的几种解压方法"></a>Ubuntu上解压压缩文件的几种解压方法</h2><h3 id="7z文件"><a href="#7z文件" class="headerlink" title=".7z文件"></a>.7z文件</h3><blockquote>
@@ -802,102 +898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>美化Gnome桌面</title>
-    <url>/posts/64330/</url>
-    <content><![CDATA[<h2 id="美化（Gnome桌面）"><a href="#美化（Gnome桌面）" class="headerlink" title="美化（Gnome桌面）"></a>美化（Gnome桌面）</h2><blockquote>
-<p>参考：</p>
-<ol>
-<li><a href="https://zhuanlan.zhihu.com/p/63584709">Ubuntu美化优化指导</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/409493039">Ubuntu下Gnome界面美化、超好用插件</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/71588449">Ubuntu18.04(Gnome)环境，十分钟配置Mac OS主题 </a></li>
-</ol>
-</blockquote>
-<p>美化虽然不是必须的，但是美化可以让系统的使用效率变得更高，比如终端美化，有些Linux终端并没有代码补全这个功能，但是美化之后就可以让终端添加代码补全这个功能，这样在终端中输入命令的效率则更会更高。</p>
-<hr>
-<p>在这里推荐一款主题（包含图标包）：Gnome主题包 <a href="https://www.aliyundrive.com/s/XCv3ZVwexym">https://www.aliyundrive.com/s/XCv3ZVwexym</a> 提取码: sz81</p>
-<hr>
-<h3 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h3><p>首先打开系统自带的火狐浏览器下载浏览器插件，插件名称叫 <code>GNOME Shell integration</code>，别的浏览器也可以，只不过火狐下载插件方便一点 <img src="/posts/64330/Gnome%E9%9B%86%E6%88%90%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6.png" alt="GNOME Shell integration"></p>
-<p>然后在打开终端输入以下三个命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update									  //更新软件源</span><br><span class="line">sudo apt-get install gnome-tweak-tool				//安装Gnome主题设置软件</span><br><span class="line">sudo apt-get install chrome-gnome-shell				//安装Gnome-shell插件</span><br></pre></td></tr></table></figure>
-
-<p>其他的Linux安装 <code>Gnome-shell</code> 请查看 <a href="https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&redirect=Projects/GnomeShellIntegrationForChrome/Installation">Gnome-shell插件安装指南</a> </p>
-<p>然后在点击火狐浏览器上刚刚下载的扩展（GNOME Shell integration），开启 User Themes </p>
-<p> <img src="/posts/64330/%E6%89%93%E5%BC%80UserThemes.png" alt="User Themes"></p>
-<p>这样你就可以更换主题了，然后进入Gnome主题网站下载自己喜欢的主题就可以了，Gnome主题网站地址：<a href="https://www.gnome-look.org/s/Gnome/browse/">GNOME-LOOK.ORG</a> ，在主题的下载目录里面打开终端，<strong>输入命令 <code>mkdir ~/.themes</code></strong> ,该命令的意思是在家目录里面创建一个名为 <code>.themes</code> 的文件夹。</p>
-<p>然后在把你的主题包文件夹移动到 <code>.themes</code> 文件夹里面就可以了。</p>
-<p>比如我的主题包放在 <code>文档</code> 这个文件夹下，那么我就在这个文件夹下打开终端，输入命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> 你的主题包文件夹的名字/* ~/.themes/</span><br></pre></td></tr></table></figure>
-
-<p>这个命令的意思是把你的主题文件夹下的所有文件移动到家目录下的<code>.themes</code> 文件夹下</p>
-<p>然后打开优化（Tweaks）</p>
-<p> <img src="/posts/64330/Gnome-Tools.png"></p>
-<p>然后点击外观，应用程序那里是你软件打开时的外观样式，Shell是系统主题外观样式</p>
-<hr>
-<h3 id="更改图标"><a href="#更改图标" class="headerlink" title="更改图标"></a>更改图标</h3><p>比如我的图标包放在 <code>文档</code> 这个文件夹下，那么我就在这个文件夹下打开终端，又因为系统的图标包都是存放在 <code>/usr/share/icons</code> 这个文件夹下的，所以要把自己下载的图标包移动到 <code>icons</code> 这个文件夹下，输入命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> 你的图标包文件夹的名字/* /usr/share/icons</span><br></pre></td></tr></table></figure>
-
-<p>该命令的意思是把你的图标文件夹下的所有文件都移动到根目录下的usr目录下的share目录下的icons目录下。</p>
-<p>然后打开优化（Tweaks）</p>
-<p> <img src="/posts/64330/Gnome-Tools.png"></p>
-<p>然后点击外观，图标那行是你的图标外观样式</p>
-<hr>
-<h3 id="更改终端主题"><a href="#更改终端主题" class="headerlink" title="更改终端主题"></a>更改终端主题</h3><blockquote>
-<p>参考：<a href="https://juejin.cn/post/7089257391740420109">Oh-my-zsh的安装、配置与卸载</a></p>
-</blockquote>
-<hr>
-<h4 id="安装终端主题"><a href="#安装终端主题" class="headerlink" title="安装终端主题"></a>安装终端主题</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//安装git</span><br><span class="line">sudo apt install git</span><br><span class="line">//安装vim</span><br><span class="line">sudo apt install vim</span><br><span class="line">//安装zsh	</span><br><span class="line">sudo apt install zsh						</span><br><span class="line">//安装Oh my zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)</span>&quot;</span>			</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">sudo vim .zshrc</span><br></pre></td></tr></table></figure>
-
-<p>然后修改自己的主题，如果不知道喜欢那个主题，则可以在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">Oh my zsh Wiki</a> 上查找，这个网站上有许多终端主题样式的图片以及对应的名字，只需要把主题的名字写入双引号内即可，在输入 <code>wq!</code> 即可保存退出，注意上面的所有符号都是英文版的</p>
-<p> <img src="/posts/64330/%E6%9B%B4%E6%94%B9%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98.png"></p>
-<p>然后重启终端，则会发现终端主题已经变成你输入的那个终端主题了</p>
-<hr>
-<h4 id="终端命令补全"><a href="#终端命令补全" class="headerlink" title="终端命令补全"></a>终端命令补全</h4><p><strong>zsh-autosuggestions</strong></p>
-<p>第一步：切换到oh-my-zsh的plugins目录下，然后下载自动提示插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins/</span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/zsh-users/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<p>第二步：编辑隐藏文件~&#x2F;.zshrc，找到<code>plugins=(git)</code>这一行，然后在git后面添加 <code>zsh-autosuggestions</code> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
-
-<p>第三步：让~&#x2F;.zshrc配置生效，执行如下命令（或者重启item2也行）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="终端语法高亮"><a href="#终端语法高亮" class="headerlink" title="终端语法高亮"></a>终端语法高亮</h4><p><strong>zsh-syntax-highlighting</strong></p>
-<ol>
-<li><p>克隆代码到$ZSH_CUSTOM&#x2F;plugins（默认位于~&#x2F;.oh-my-zsh&#x2F;custom&#x2F;plugins）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/imirror/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在Oh My Zsh配置启用插件</p>
-<p>打开 <code>~/.zshrc</code> ，找到 <code>plugins</code> ，添加 <code>zsh-autosuggestions</code>。<br>编辑 <code>~/.zshrc</code>：<code>vim ~/.zshrc</code><br><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</code><br>使配置生效：source ~&#x2F;.zshrc</p>
-</li>
-</ol>
-<hr>
-<h4 id="卸载Oh-my-zsh"><a href="#卸载Oh-my-zsh" class="headerlink" title="卸载Oh my zsh"></a>卸载Oh my zsh</h4><p>进入到.oh-my-zsh&#x2F;tools目录</p>
-<ul>
-<li><code>cd .oh-my-zsh/tools</code></li>
-<li><code>chmod +x uninstall.sh</code></li>
-<li>.&#x2F;uninstall.sh</li>
-<li><code>rm -rif .zshrc</code></li>
-</ul>
-<hr>
-<h3 id="Gnome扩展推荐"><a href="#Gnome扩展推荐" class="headerlink" title="Gnome扩展推荐"></a>Gnome扩展推荐</h3><p>Gnome扩展下载网址：<a href="https://extensions.gnome.org/">GNOME Shell扩展网站</a></p>
-<ol>
-<li>Removable Drive Menu：U盘快速操作。插入U盘或移动硬盘，可以执行打开、弹出等操作</li>
-<li>Workspace Indicator：多窗口管理器</li>
-<li>TopIcons Plus：解决QQ（Wine），微信（Wine）状态栏显示不正常的问题，参考 <a href="https://blog.csdn.net/Steven_Start/article/details/117379049">Ubuntu20.04安装微信详细步骤，解决显示异常，无法显示输入内容问题和状态栏问题</a></li>
-<li>system-monitor：系统资源显示</li>
-<li>Screenshot Tool：截图工具</li>
-<li>Clipboard Indicator：剪贴板</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Gnome美化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SSH远程连接Linux</title>
     <url>/posts/26478/</url>
     <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
@@ -990,27 +990,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装Java环境</title>
-    <url>/posts/58849/</url>
-    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
-<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
-<p>在配置环境变量：</p>
-<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
-
-<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu安装Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu卸载软件</title>
     <url>/posts/44349/</url>
     <content><![CDATA[<h2 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h2><blockquote>
@@ -1049,33 +1028,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装搜狗输入法</title>
-    <url>/posts/25450/</url>
-    <content><![CDATA[<h2 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h2><ol>
-<li><p>下载搜狗输入法 Linux版的安装包（下载什么架构的包，按自己的处理器来决定，一般都是x86_64）</p>
-</li>
-<li><p>先卸载ibus输入法框架，命令是 <code>sudo apt purge ibus</code> </p>
-</li>
-<li><p>重启</p>
-</li>
-<li><p>安装fcitx输入法框架，命令是 <code>sudo apt install fcitx</code> ,然后在设置里面把fcitx设置为首选项，点开<code>设置 --&gt; 区域和语言 --&gt; 管理已安装的语言</code>，此时会弹出一个小窗口，显示 <code>语言支持没有安装完整</code>，点击详细信息，发现只有两个或者多个<code>ibus</code>软件，不用管，点击稍后提醒即可</p>
-<p>将<code>键盘输入发系统</code>设置为fcitx</p>
-<p>在启动fcitx即可</p>
-</li>
-<li><p>然后进入下载搜狗输入法软件包的文件夹里面，在该目录里面打开终端输入 <code>sudo dpkg -i 搜狗输入法的软件包名（全称）</code>  </p>
-</li>
-<li><p>在安装输入法依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 在终端执行下面这两条命令</span><br><span class="line"></span><br><span class="line">sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2</span><br><span class="line"></span><br><span class="line">sudo apt install libgsettings-qt1</span><br></pre></td></tr></table></figure>
+    <title>Ubuntu安装Java环境</title>
+    <url>/posts/58849/</url>
+    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
+<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
+<p>在配置环境变量：</p>
+<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
 
-<p>然后重启即可，如果重启之后发现fcitx没有启动，那么就设置fcitx开机自启动，命令为 <code>sudo cp /usr/share/applications/fcitx.desktop /etc/xdg/autostart/</code> ，就可以了，不出意外的话，搜狗输入法因该就可以使用了</p>
-</li>
-</ol>
+<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
+<hr>
 ]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu安装搜狗输入法</tag>
+        <tag>Ubuntu安装Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1103,6 +1073,36 @@
       </categories>
       <tags>
         <tag>Ubuntu安装字体</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装搜狗输入法</title>
+    <url>/posts/25450/</url>
+    <content><![CDATA[<h2 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h2><ol>
+<li><p>下载搜狗输入法 Linux版的安装包（下载什么架构的包，按自己的处理器来决定，一般都是x86_64）</p>
+</li>
+<li><p>先卸载ibus输入法框架，命令是 <code>sudo apt purge ibus</code> </p>
+</li>
+<li><p>重启</p>
+</li>
+<li><p>安装fcitx输入法框架，命令是 <code>sudo apt install fcitx</code> ,然后在设置里面把fcitx设置为首选项，点开<code>设置 --&gt; 区域和语言 --&gt; 管理已安装的语言</code>，此时会弹出一个小窗口，显示 <code>语言支持没有安装完整</code>，点击详细信息，发现只有两个或者多个<code>ibus</code>软件，不用管，点击稍后提醒即可</p>
+<p>将<code>键盘输入发系统</code>设置为fcitx</p>
+<p>在启动fcitx即可</p>
+</li>
+<li><p>然后进入下载搜狗输入法软件包的文件夹里面，在该目录里面打开终端输入 <code>sudo dpkg -i 搜狗输入法的软件包名（全称）</code>  </p>
+</li>
+<li><p>在安装输入法依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 在终端执行下面这两条命令</span><br><span class="line"></span><br><span class="line">sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2</span><br><span class="line"></span><br><span class="line">sudo apt install libgsettings-qt1</span><br></pre></td></tr></table></figure>
+
+<p>然后重启即可，如果重启之后发现fcitx没有启动，那么就设置fcitx开机自启动，命令为 <code>sudo cp /usr/share/applications/fcitx.desktop /etc/xdg/autostart/</code> ，就可以了，不出意外的话，搜狗输入法因该就可以使用了</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu安装搜狗输入法</tag>
       </tags>
   </entry>
   <entry>
