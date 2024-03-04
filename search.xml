@@ -90,6 +90,48 @@
       </tags>
   </entry>
   <entry>
+    <title>MTPuTTY连接工具</title>
+    <url>/posts/55650/</url>
+    <content><![CDATA[<blockquote>
+<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
+<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
+</blockquote>
+<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
+<p><strong>PuTTY主页</strong></p>
+<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
+<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
+<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
+<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
+<hr>
+<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
+<hr>
+<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
+<hr>
+<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
+<hr>
+<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
+<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
+<p><strong>保存设置信息</strong></p>
+<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
+<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
+<hr>
+<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
+<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
+<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
+<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
+<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
+<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>SSH软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VMware安装Arch</title>
     <url>/posts/55769/</url>
     <content><![CDATA[<blockquote>
@@ -388,48 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MTPuTTY连接工具</title>
-    <url>/posts/55650/</url>
-    <content><![CDATA[<blockquote>
-<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
-<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
-</blockquote>
-<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
-<p><strong>PuTTY主页</strong></p>
-<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
-<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
-<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
-<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
-<hr>
-<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
-<hr>
-<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
-<hr>
-<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
-<hr>
-<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
-<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
-<p><strong>保存设置信息</strong></p>
-<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
-<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
-<hr>
-<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
-<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
-<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
-<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
-<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
-<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>SSH软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware搭建本地服务器</title>
     <url>/posts/42536/</url>
     <content><![CDATA[<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
@@ -672,95 +672,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux压缩以及解压文件命令</title>
-    <url>/posts/8868/</url>
-    <content><![CDATA[<h2 id="Ubuntu上解压压缩文件的几种解压方法"><a href="#Ubuntu上解压压缩文件的几种解压方法" class="headerlink" title="Ubuntu上解压压缩文件的几种解压方法"></a>Ubuntu上解压压缩文件的几种解压方法</h2><h3 id="7z文件"><a href="#7z文件" class="headerlink" title=".7z文件"></a>.7z文件</h3><blockquote>
-<p>参考:<a href="https://blog.csdn.net/weixin_39736934/article/details/116826936">linux 解压 7z 乱码,7z-linux下解决中文名乱码的终极办法</a></p>
-</blockquote>
-<p><strong>准备工作</strong></p>
-<p>打开终端，在终端中输入 </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://netix.dl.sourceforge.net/project/p7zip/p7zip/15.09/p7zip_15.09_src_all.tar.bz2</span><br></pre></td></tr></table></figure>
-
-<p>此时会自动下载7z的源码，你的终端在什么地方打开的，那么源码就下载到什么位置，但是如果你的终端是在桌面上打开的，那么7z的源码则下载至家目录里面的。</p>
-<p>源码下载完成之后解压该源码，在终端中输入 <code>tar -jxvf p7zip_15.09_src_all.tar.bz2</code> ,这样源码在什么地方，则解压就解压到什么地方。</p>
-<p>如果你想解压到别的地方，则可以输入 <code>tar -jxvf p7zip_15.09_src_all.tar.bz2 -C /xx/xxx/xxx</code> ,-C大写，后面接要解压的路径</p>
-<p>解压后得到一个名为 <code>p7zip_15.09</code> 的文件夹，进入源码文件夹里面，终端中输入 <code>cd p7zip_15.09</code> 即可进入到源码文件夹里面，然后运行代码 <code>sudo make install</code> ，该代码是用来编译源码的，编译完成之后就可以使用解压7zip了</p>
-<p><strong>如果编译失败，那么可以尝试自己安装，输入命令 <code>sudo apt install p7zip</code>  即可，这样系统就会自动安装p7zip了</strong> </p>
-<p><em><strong>如果是CentOS系统，可以源码编译，也可以使用yum命令来安装，这种适合CentOS 7及以上的系统</strong></em></p>
-<p>在终端中输入 <code>sudo yum install -y p7zip</code> 即可下载</p>
-<p>如果编译的时候提示gcc命令未找到时，则输入以下两个命令</p>
-<p><code>sudo yum -y update gcc</code> 和 <code>sudo yum -y install gcc+ gcc-c++</code> </p>
-<blockquote>
-<p><strong>使用方法</strong></p>
-</blockquote>
-<h4 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a><strong>压缩</strong></h4><p>举个例子：比如我要压缩一个名为 <code>text</code> 的文件夹，那么只需要在该文件夹所在的文件目录里面打开终端，输入命令 <code>7za a test.7z test</code> ，这样text文件夹就压缩成 .7z 文件了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">7za a 文件夹名.7z 文件夹名</span><br></pre></td></tr></table></figure>
-
-<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a><strong>解压</strong></h4><p>举个例子：比如我要解压一个名为 <code>text.7z</code> 的压缩包，那么只需要在该压缩包的文件目录里面打开终端，输入命令 <code>7za x test.7z</code> ，这样 <code>text.7z</code> 就解压成一个文件夹了，如果你想把 <code>text.7z</code> 压缩包解压到别的文件夹下，则可以输入 <code>7za x test.7z -o/解压路径</code> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">7za x 7z压缩包名</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>7z命令中的参数解释说明</strong></p>
-<p><code>7za a</code> ：向压缩包里添加文件或创建压缩包，如向001.7z添加001.jpg，执行：<code>7za a 001.7z 001.jpg</code>；将001目录打包执行：<code>7za a 001.7z 001</code>；</p>
-<p><code>7za d</code> ：从压缩里删除文件，如将001.7z里的001.jpg删除，执行：<code>7za d 001.7z 001.jpg</code></p>
-<p><code>7za l</code> ：列出压缩包里的文件，如列出001.7z里的文件，执行：<code>7za l 001.7z</code></p>
-<p><code>7za e</code> ：解压到当前目录，目录结构会被破坏，如001.rar内有如下目录及文件123&#x2F;456&#x2F;789.html，执行：<code>7za e 001.rar</code>，目录123和456及文件789.html都会存放在当前目录下。</p>
-<p><code>7za x</code> ：以完整路径解压</p>
-<p><strong>但常用的也只有解压和压缩这两个命令</strong> </p>
-<hr>
-<h3 id="zip文件"><a href="#zip文件" class="headerlink" title=".zip文件"></a>.zip文件</h3><blockquote>
-<p>参考<a href="https://blog.csdn.net/TaroYoVen/article/details/85041628">ubuntu下解压zip文件出现中文乱码</a></p>
-</blockquote>
-<blockquote>
-<p>参考<a href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>等linux系统时经常会遇到解压压缩文件出现乱码，之所以这样是因为由于zip格式并没有指定编码格式，Windows下生成的zip文件中的编码是GBK&#x2F;GB2312等，因此，导致这些zip文件在Linux下解压时出现乱码问题，因为Linux下的默认编码是UTF8。</p>
-</blockquote>
-<blockquote>
-<p>zip的处理方式主要有以下两种</p>
-</blockquote>
-<h4 id="1-unzip"><a href="#1-unzip" class="headerlink" title="1.unzip"></a>1.unzip</h4><p>解压时指定字符编码(如果你的zip压缩文件是在Windows上压缩的，那么在Linux上则要指定<strong>编码</strong>解压，否则会出现解压的文件会有乱码的情况)，比如我要解压 <code>text.zip</code> ，只需在终端中输入以下代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unzip -O GBK text.zip</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-unar"><a href="#2-unar" class="headerlink" title="2.unar"></a>2.unar</h4><p>首先要下载unar，在终端中输入 <code>sudo apt install unar</code> ,等待系统下载完</p>
-<p>比如我要解压 <code>text.zip</code> ,只需在终端中输入以下代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unar text.zip</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="RAR文件"><a href="#RAR文件" class="headerlink" title=".RAR文件"></a>.RAR文件</h3><blockquote>
-<p>参考<a href="https://zhuanlan.zhihu.com/p/45998246">在 Ubuntu Linux 中使用 RAR 文件</a></p>
-</blockquote>
-<h4 id="解压-1"><a href="#解压-1" class="headerlink" title="解压"></a>解压</h4><p>首先在终端中输入 <code>sudo apt-get install unrar</code> 下载unrar命令行工具，比如我要解压一个名为 <code>text.rar</code> 的压缩包，只需要在该目录下打开终端，输入 <code>unrar x text.rar</code> 即可解压</p>
-<h4 id="压缩-1"><a href="#压缩-1" class="headerlink" title="压缩"></a>压缩</h4><p>在终端中输入 <code>sudo apt-get install rar</code> 下载rar命令行工具，比如我要把 <code>text</code> 文件夹压缩为 <code>text.rar</code> 压缩文件，只需要在啊该目录下打开终端，输入 <code>rar a text text</code> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">rar a 压缩之后的文件名 要压缩的文件名</span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p>参考<a href="https://blog.csdn.net/weixin_44798538/article/details/121632095">Ubuntu 常用解压、压缩命令</a></p>
-</blockquote>
-<h3 id="tar文件和-tar-xz"><a href="#tar文件和-tar-xz" class="headerlink" title=".tar文件和.tar.xz"></a>.tar文件和.tar.xz</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf FileName.tar         <span class="comment"># 解包</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">解压到当前目录：tar -jxvf xx.tar.bz2</span><br><span class="line"></span><br><span class="line">解压到指定目录：tar -jxvf xx.tar.bz2 -C /xx/xxx/xxx</span><br><span class="line"></span><br><span class="line">-C大写，后面接要解压的路径</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="tar-gz文件"><a href="#tar-gz文件" class="headerlink" title=".tar.gz文件"></a>.tar.gz文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf FileName.tar.gz               <span class="comment"># 解压</span></span><br><span class="line">tar -C DesDirName -zxvf FileName.tar.gz <span class="comment"># 解压到目标路径</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="gz文件和-tgz文件"><a href="#gz文件和-tgz文件" class="headerlink" title=".gz文件和.tgz文件"></a>.gz文件和.tgz文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gunzip FileName.gz  <span class="comment"># 解压1</span></span><br><span class="line">gzip -d FileName.gz <span class="comment"># 解压2</span></span><br><span class="line">gzip FileName       <span class="comment"># 压缩，只能压缩文件</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>美化Gnome桌面</title>
     <url>/posts/64330/</url>
     <content><![CDATA[<h2 id="美化（Gnome桌面）"><a href="#美化（Gnome桌面）" class="headerlink" title="美化（Gnome桌面）"></a>美化（Gnome桌面）</h2><blockquote>
@@ -857,6 +768,95 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux压缩以及解压文件命令</title>
+    <url>/posts/8868/</url>
+    <content><![CDATA[<h2 id="Ubuntu上解压压缩文件的几种解压方法"><a href="#Ubuntu上解压压缩文件的几种解压方法" class="headerlink" title="Ubuntu上解压压缩文件的几种解压方法"></a>Ubuntu上解压压缩文件的几种解压方法</h2><h3 id="7z文件"><a href="#7z文件" class="headerlink" title=".7z文件"></a>.7z文件</h3><blockquote>
+<p>参考:<a href="https://blog.csdn.net/weixin_39736934/article/details/116826936">linux 解压 7z 乱码,7z-linux下解决中文名乱码的终极办法</a></p>
+</blockquote>
+<p><strong>准备工作</strong></p>
+<p>打开终端，在终端中输入 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://netix.dl.sourceforge.net/project/p7zip/p7zip/15.09/p7zip_15.09_src_all.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<p>此时会自动下载7z的源码，你的终端在什么地方打开的，那么源码就下载到什么位置，但是如果你的终端是在桌面上打开的，那么7z的源码则下载至家目录里面的。</p>
+<p>源码下载完成之后解压该源码，在终端中输入 <code>tar -jxvf p7zip_15.09_src_all.tar.bz2</code> ,这样源码在什么地方，则解压就解压到什么地方。</p>
+<p>如果你想解压到别的地方，则可以输入 <code>tar -jxvf p7zip_15.09_src_all.tar.bz2 -C /xx/xxx/xxx</code> ,-C大写，后面接要解压的路径</p>
+<p>解压后得到一个名为 <code>p7zip_15.09</code> 的文件夹，进入源码文件夹里面，终端中输入 <code>cd p7zip_15.09</code> 即可进入到源码文件夹里面，然后运行代码 <code>sudo make install</code> ，该代码是用来编译源码的，编译完成之后就可以使用解压7zip了</p>
+<p><strong>如果编译失败，那么可以尝试自己安装，输入命令 <code>sudo apt install p7zip</code>  即可，这样系统就会自动安装p7zip了</strong> </p>
+<p><em><strong>如果是CentOS系统，可以源码编译，也可以使用yum命令来安装，这种适合CentOS 7及以上的系统</strong></em></p>
+<p>在终端中输入 <code>sudo yum install -y p7zip</code> 即可下载</p>
+<p>如果编译的时候提示gcc命令未找到时，则输入以下两个命令</p>
+<p><code>sudo yum -y update gcc</code> 和 <code>sudo yum -y install gcc+ gcc-c++</code> </p>
+<blockquote>
+<p><strong>使用方法</strong></p>
+</blockquote>
+<h4 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a><strong>压缩</strong></h4><p>举个例子：比如我要压缩一个名为 <code>text</code> 的文件夹，那么只需要在该文件夹所在的文件目录里面打开终端，输入命令 <code>7za a test.7z test</code> ，这样text文件夹就压缩成 .7z 文件了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">7za a 文件夹名.7z 文件夹名</span><br></pre></td></tr></table></figure>
+
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a><strong>解压</strong></h4><p>举个例子：比如我要解压一个名为 <code>text.7z</code> 的压缩包，那么只需要在该压缩包的文件目录里面打开终端，输入命令 <code>7za x test.7z</code> ，这样 <code>text.7z</code> 就解压成一个文件夹了，如果你想把 <code>text.7z</code> 压缩包解压到别的文件夹下，则可以输入 <code>7za x test.7z -o/解压路径</code> </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">7za x 7z压缩包名</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>7z命令中的参数解释说明</strong></p>
+<p><code>7za a</code> ：向压缩包里添加文件或创建压缩包，如向001.7z添加001.jpg，执行：<code>7za a 001.7z 001.jpg</code>；将001目录打包执行：<code>7za a 001.7z 001</code>；</p>
+<p><code>7za d</code> ：从压缩里删除文件，如将001.7z里的001.jpg删除，执行：<code>7za d 001.7z 001.jpg</code></p>
+<p><code>7za l</code> ：列出压缩包里的文件，如列出001.7z里的文件，执行：<code>7za l 001.7z</code></p>
+<p><code>7za e</code> ：解压到当前目录，目录结构会被破坏，如001.rar内有如下目录及文件123&#x2F;456&#x2F;789.html，执行：<code>7za e 001.rar</code>，目录123和456及文件789.html都会存放在当前目录下。</p>
+<p><code>7za x</code> ：以完整路径解压</p>
+<p><strong>但常用的也只有解压和压缩这两个命令</strong> </p>
+<hr>
+<h3 id="zip文件"><a href="#zip文件" class="headerlink" title=".zip文件"></a>.zip文件</h3><blockquote>
+<p>参考<a href="https://blog.csdn.net/TaroYoVen/article/details/85041628">ubuntu下解压zip文件出现中文乱码</a></p>
+</blockquote>
+<blockquote>
+<p>参考<a href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>等linux系统时经常会遇到解压压缩文件出现乱码，之所以这样是因为由于zip格式并没有指定编码格式，Windows下生成的zip文件中的编码是GBK&#x2F;GB2312等，因此，导致这些zip文件在Linux下解压时出现乱码问题，因为Linux下的默认编码是UTF8。</p>
+</blockquote>
+<blockquote>
+<p>zip的处理方式主要有以下两种</p>
+</blockquote>
+<h4 id="1-unzip"><a href="#1-unzip" class="headerlink" title="1.unzip"></a>1.unzip</h4><p>解压时指定字符编码(如果你的zip压缩文件是在Windows上压缩的，那么在Linux上则要指定<strong>编码</strong>解压，否则会出现解压的文件会有乱码的情况)，比如我要解压 <code>text.zip</code> ，只需在终端中输入以下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unzip -O GBK text.zip</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-unar"><a href="#2-unar" class="headerlink" title="2.unar"></a>2.unar</h4><p>首先要下载unar，在终端中输入 <code>sudo apt install unar</code> ,等待系统下载完</p>
+<p>比如我要解压 <code>text.zip</code> ,只需在终端中输入以下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unar text.zip</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="RAR文件"><a href="#RAR文件" class="headerlink" title=".RAR文件"></a>.RAR文件</h3><blockquote>
+<p>参考<a href="https://zhuanlan.zhihu.com/p/45998246">在 Ubuntu Linux 中使用 RAR 文件</a></p>
+</blockquote>
+<h4 id="解压-1"><a href="#解压-1" class="headerlink" title="解压"></a>解压</h4><p>首先在终端中输入 <code>sudo apt-get install unrar</code> 下载unrar命令行工具，比如我要解压一个名为 <code>text.rar</code> 的压缩包，只需要在该目录下打开终端，输入 <code>unrar x text.rar</code> 即可解压</p>
+<h4 id="压缩-1"><a href="#压缩-1" class="headerlink" title="压缩"></a>压缩</h4><p>在终端中输入 <code>sudo apt-get install rar</code> 下载rar命令行工具，比如我要把 <code>text</code> 文件夹压缩为 <code>text.rar</code> 压缩文件，只需要在啊该目录下打开终端，输入 <code>rar a text text</code> </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//代码公式</span><br><span class="line">rar a 压缩之后的文件名 要压缩的文件名</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>参考<a href="https://blog.csdn.net/weixin_44798538/article/details/121632095">Ubuntu 常用解压、压缩命令</a></p>
+</blockquote>
+<h3 id="tar文件和-tar-xz"><a href="#tar文件和-tar-xz" class="headerlink" title=".tar文件和.tar.xz"></a>.tar文件和.tar.xz</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf FileName.tar         <span class="comment"># 解包</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">解压到当前目录：tar -jxvf xx.tar.bz2</span><br><span class="line"></span><br><span class="line">解压到指定目录：tar -jxvf xx.tar.bz2 -C /xx/xxx/xxx</span><br><span class="line"></span><br><span class="line">-C大写，后面接要解压的路径</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tar-gz文件"><a href="#tar-gz文件" class="headerlink" title=".tar.gz文件"></a>.tar.gz文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf FileName.tar.gz               <span class="comment"># 解压</span></span><br><span class="line">tar -C DesDirName -zxvf FileName.tar.gz <span class="comment"># 解压到目标路径</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="gz文件和-tgz文件"><a href="#gz文件和-tgz文件" class="headerlink" title=".gz文件和.tgz文件"></a>.gz文件和.tgz文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gunzip FileName.gz  <span class="comment"># 解压1</span></span><br><span class="line">gzip -d FileName.gz <span class="comment"># 解压2</span></span><br><span class="line">gzip FileName       <span class="comment"># 压缩，只能压缩文件</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux终端连接校园网</title>
     <url>/posts/34327/</url>
     <content><![CDATA[<blockquote>
@@ -898,6 +898,22 @@
       </tags>
   </entry>
   <entry>
+    <title>SSH远程连接Linux</title>
+    <url>/posts/26478/</url>
+    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
+<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>重启SSH服务 <code>sudo service sshd start</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>SSH连接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu关闭桌面GUI</title>
     <url>/posts/13204/</url>
     <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
@@ -913,22 +929,6 @@
       </categories>
       <tags>
         <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH远程连接Linux</title>
-    <url>/posts/26478/</url>
-    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
-<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<p>重启SSH服务 <code>sudo service sshd start</code></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>SSH连接</tag>
       </tags>
   </entry>
   <entry>
