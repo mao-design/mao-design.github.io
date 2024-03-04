@@ -1290,6 +1290,53 @@
       </tags>
   </entry>
   <entry>
+    <title>安装Ubuntu的一些小问题</title>
+    <url>/posts/63450/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>本教程基于Ubuntu</strong></p>
+<p><strong>因为Ubuntu是Debian系的，所以使用上和别的Debian系的使用方法差不多</strong></p>
+</blockquote>
+<h2 id="安装open-vm-tools"><a href="#安装open-vm-tools" class="headerlink" title="安装open-vm-tools"></a>安装open-vm-tools</h2><p>虚拟机里面安装VMware-tools推荐使用开源的open-vm-tools，官方的VMware-tools有时候会出现问题，比如系统分辨率可以根据虚拟机的窗口大小自动调节，但是不能和宿主机互相传文件，为了防止这一系列的问题，所以推荐使用open-vm-tools。</p>
+<p>安装的命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//更新软件源</span><br><span class="line">sudo apt-get update		</span><br><span class="line">//进入root模式 </span><br><span class="line">sudo su			</span><br><span class="line">// 下载所有open-vm-tools组件</span><br><span class="line">apt-get install open-vm-*</span><br><span class="line">//重启电脑</span><br><span class="line">reboot		</span><br></pre></td></tr></table></figure>
+
+<p>这样，虚拟机就可以和宿主机互传文件了</p>
+<hr>
+<h2 id="安装VirtualBox-Tools工具"><a href="#安装VirtualBox-Tools工具" class="headerlink" title="安装VirtualBox-Tools工具"></a>安装VirtualBox-Tools工具</h2><p>打开终端输入命令 <code>sudo apt update</code> 这行代码是更新软件源, 然后在输入 <code>sudo apt-get install build-essential gcc make perl dkms</code> 这行代码是安装依赖，安装完成之后重启系统 。</p>
+<p>在VirtualBox增强工具安装盘里面打开终端，输入 <code>ls</code> 命令查看当前目录下的文件，找到一个名为 <code>VBoxLinuxAdditions.run</code> 的文件，然后在终端里输入 <code>sudo ./VBoxLinuxAdditions.run</code> 这行命令，这行命令的意思是执行一个名为 <code>VBoxLinuxAdditions.run</code> 的文件，执行这个文件之后系统会自动下载所需的文件，这时候慢慢等待安装即可，安装完成之后记得重启一下。</p>
+<hr>
+<h2 id="Ubuntu引导修复"><a href="#Ubuntu引导修复" class="headerlink" title="Ubuntu引导修复"></a>Ubuntu引导修复</h2><p>准备一个Ubuntu的安装盘，然后打开自己电脑的BIOS设置，设置U盘为第一启动项，然后进入Ubuntu的安装界面，打开终端安装boot-repair，输入命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure>
+
+<p>然后点击 <code>Recommanded repair</code> ，等几分钟后，就会出现成功修复的界面，然会退出软件，关机，拔掉U盘，再开机即可恢复到以前的双系统启动界面</p>
+<hr>
+<h2 id="一些基本的apt命令"><a href="#一些基本的apt命令" class="headerlink" title="一些基本的apt命令"></a>一些基本的apt命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><p>编辑 <code>vim /etc/apt/sources.list</code> （<code>sources.list</code>是源文件）</p>
+<p>将里面的所有源注释掉（在语句前面加上 <code>#</code> 即可）</p>
+<p>在<a href="https://developer.aliyun.com/mirror/">阿里巴巴开源镜像站</a>中找到你所对应的系统，然后点进去，里面会有对应的修改教程</p>
+<p>比如我的Ubuntu，往下滑找到对应版本所对应的源，复制粘贴到 <code>sources.list</code> 中</p>
+<p><code>:wq!</code> 保存退出</p>
+<p>更新源 <code>sudo apt update</code></p>
+<p>而CentOS 7则是输入 <code>wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</code> 输入这条下载命令即可将阿里的源文件下载下来并将本机的源文件给替换掉</p>
+<p>然后更新源 <code>sudo yum update</code> </p>
+<hr>
+<h2 id="显示-E-Sub-process-usr-bin-dpkg-returned-an-error-code-1-的解决方法"><a href="#显示-E-Sub-process-usr-bin-dpkg-returned-an-error-code-1-的解决方法" class="headerlink" title="显示 E: Sub-process /usr/bin/dpkg returned an error code (1)  的解决方法"></a>显示 <code>E: Sub-process /usr/bin/dpkg returned an error code (1)</code>  的解决方法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//现将info文件夹更名</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info /var/lib/dpkg/info_old	</span><br><span class="line">//再新建一个新的info文件夹</span><br><span class="line">sudo <span class="built_in">mkdir</span> /var/lib/dpkg/info         				 </span><br><span class="line">//更新源</span><br><span class="line">sudo apt-get update</span><br><span class="line">//修复安装</span><br><span class="line">sudo apt-get -f install   </span><br><span class="line">//执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info/* /var/lib/dpkg/info_old       </span><br><span class="line">//把自己新建的info文件夹删掉</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /var/lib/dpkg/info     </span><br><span class="line">//把以前的info文件夹重新改回名字</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info_old /var/lib/dpkg/info    </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>如果运行上面的六条命令之后还是不能安装软件</strong>，那么就要进入 <code> /var/lib/dpkg/</code> 里面查看info文件夹的名字是否修改成功，我就遇到一个文件名为info（不是文件夹，是文件），而这个文件里面什么都没有，就导致修改名字失败，然而我原来的info文件夹的名字却变成了info.bk，这时候只需要把这个info这个文件删除掉，然后在把info.bk这个文件夹的名字修改为info即可，修改文件夹的命令为 <code>sudo mv info.bk info</code> （要在 <code> /var/lib/dpkg/</code> 里面打开终端），这样不出意外的话，就可以正常安装软件了</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly主题所需要的运行插件</title>
     <url>/posts/27760/</url>
     <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
@@ -1338,53 +1385,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装Ubuntu的一些小问题</title>
-    <url>/posts/63450/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>本教程基于Ubuntu</strong></p>
-<p><strong>因为Ubuntu是Debian系的，所以使用上和别的Debian系的使用方法差不多</strong></p>
-</blockquote>
-<h2 id="安装open-vm-tools"><a href="#安装open-vm-tools" class="headerlink" title="安装open-vm-tools"></a>安装open-vm-tools</h2><p>虚拟机里面安装VMware-tools推荐使用开源的open-vm-tools，官方的VMware-tools有时候会出现问题，比如系统分辨率可以根据虚拟机的窗口大小自动调节，但是不能和宿主机互相传文件，为了防止这一系列的问题，所以推荐使用open-vm-tools。</p>
-<p>安装的命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//更新软件源</span><br><span class="line">sudo apt-get update		</span><br><span class="line">//进入root模式 </span><br><span class="line">sudo su			</span><br><span class="line">// 下载所有open-vm-tools组件</span><br><span class="line">apt-get install open-vm-*</span><br><span class="line">//重启电脑</span><br><span class="line">reboot		</span><br></pre></td></tr></table></figure>
-
-<p>这样，虚拟机就可以和宿主机互传文件了</p>
-<hr>
-<h2 id="安装VirtualBox-Tools工具"><a href="#安装VirtualBox-Tools工具" class="headerlink" title="安装VirtualBox-Tools工具"></a>安装VirtualBox-Tools工具</h2><p>打开终端输入命令 <code>sudo apt update</code> 这行代码是更新软件源, 然后在输入 <code>sudo apt-get install build-essential gcc make perl dkms</code> 这行代码是安装依赖，安装完成之后重启系统 。</p>
-<p>在VirtualBox增强工具安装盘里面打开终端，输入 <code>ls</code> 命令查看当前目录下的文件，找到一个名为 <code>VBoxLinuxAdditions.run</code> 的文件，然后在终端里输入 <code>sudo ./VBoxLinuxAdditions.run</code> 这行命令，这行命令的意思是执行一个名为 <code>VBoxLinuxAdditions.run</code> 的文件，执行这个文件之后系统会自动下载所需的文件，这时候慢慢等待安装即可，安装完成之后记得重启一下。</p>
-<hr>
-<h2 id="Ubuntu引导修复"><a href="#Ubuntu引导修复" class="headerlink" title="Ubuntu引导修复"></a>Ubuntu引导修复</h2><p>准备一个Ubuntu的安装盘，然后打开自己电脑的BIOS设置，设置U盘为第一启动项，然后进入Ubuntu的安装界面，打开终端安装boot-repair，输入命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y boot-repair</span><br><span class="line">boot-repair</span><br></pre></td></tr></table></figure>
-
-<p>然后点击 <code>Recommanded repair</code> ，等几分钟后，就会出现成功修复的界面，然会退出软件，关机，拔掉U盘，再开机即可恢复到以前的双系统启动界面</p>
-<hr>
-<h2 id="一些基本的apt命令"><a href="#一些基本的apt命令" class="headerlink" title="一些基本的apt命令"></a>一些基本的apt命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><p>编辑 <code>vim /etc/apt/sources.list</code> （<code>sources.list</code>是源文件）</p>
-<p>将里面的所有源注释掉（在语句前面加上 <code>#</code> 即可）</p>
-<p>在<a href="https://developer.aliyun.com/mirror/">阿里巴巴开源镜像站</a>中找到你所对应的系统，然后点进去，里面会有对应的修改教程</p>
-<p>比如我的Ubuntu，往下滑找到对应版本所对应的源，复制粘贴到 <code>sources.list</code> 中</p>
-<p><code>:wq!</code> 保存退出</p>
-<p>更新源 <code>sudo apt update</code></p>
-<p>而CentOS 7则是输入 <code>wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</code> 输入这条下载命令即可将阿里的源文件下载下来并将本机的源文件给替换掉</p>
-<p>然后更新源 <code>sudo yum update</code> </p>
-<hr>
-<h2 id="显示-E-Sub-process-usr-bin-dpkg-returned-an-error-code-1-的解决方法"><a href="#显示-E-Sub-process-usr-bin-dpkg-returned-an-error-code-1-的解决方法" class="headerlink" title="显示 E: Sub-process /usr/bin/dpkg returned an error code (1)  的解决方法"></a>显示 <code>E: Sub-process /usr/bin/dpkg returned an error code (1)</code>  的解决方法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//现将info文件夹更名</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info /var/lib/dpkg/info_old	</span><br><span class="line">//再新建一个新的info文件夹</span><br><span class="line">sudo <span class="built_in">mkdir</span> /var/lib/dpkg/info         				 </span><br><span class="line">//更新源</span><br><span class="line">sudo apt-get update</span><br><span class="line">//修复安装</span><br><span class="line">sudo apt-get -f install   </span><br><span class="line">//执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info/* /var/lib/dpkg/info_old       </span><br><span class="line">//把自己新建的info文件夹删掉</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /var/lib/dpkg/info     </span><br><span class="line">//把以前的info文件夹重新改回名字</span><br><span class="line">sudo <span class="built_in">mv</span> /var/lib/dpkg/info_old /var/lib/dpkg/info    </span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>如果运行上面的六条命令之后还是不能安装软件</strong>，那么就要进入 <code> /var/lib/dpkg/</code> 里面查看info文件夹的名字是否修改成功，我就遇到一个文件名为info（不是文件夹，是文件），而这个文件里面什么都没有，就导致修改名字失败，然而我原来的info文件夹的名字却变成了info.bk，这时候只需要把这个info这个文件删除掉，然后在把info.bk这个文件夹的名字修改为info即可，修改文件夹的命令为 <code>sudo mv info.bk info</code> （要在 <code> /var/lib/dpkg/</code> 里面打开终端），这样不出意外的话，就可以正常安装软件了</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
       </tags>
   </entry>
   <entry>
