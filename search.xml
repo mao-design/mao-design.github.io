@@ -90,48 +90,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MTPuTTY连接工具</title>
-    <url>/posts/55650/</url>
-    <content><![CDATA[<blockquote>
-<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
-<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
-</blockquote>
-<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
-<p><strong>PuTTY主页</strong></p>
-<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
-<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
-<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
-<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
-<hr>
-<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
-<hr>
-<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
-<hr>
-<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
-<hr>
-<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
-<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
-<p><strong>保存设置信息</strong></p>
-<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
-<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
-<hr>
-<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
-<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
-<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
-<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
-<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
-<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>SSH软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware安装Arch</title>
     <url>/posts/55769/</url>
     <content><![CDATA[<blockquote>
@@ -427,6 +385,48 @@
       </categories>
       <tags>
         <tag>Arch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MTPuTTY连接工具</title>
+    <url>/posts/55650/</url>
+    <content><![CDATA[<blockquote>
+<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
+<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
+</blockquote>
+<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
+<p><strong>PuTTY主页</strong></p>
+<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
+<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
+<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
+<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
+<hr>
+<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
+<hr>
+<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
+<hr>
+<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
+<hr>
+<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
+<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
+<p><strong>保存设置信息</strong></p>
+<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
+<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
+<hr>
+<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
+<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
+<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
+<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
+<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
+<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>SSH软件</tag>
       </tags>
   </entry>
   <entry>
