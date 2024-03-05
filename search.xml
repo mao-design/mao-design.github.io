@@ -898,6 +898,22 @@
       </tags>
   </entry>
   <entry>
+    <title>SSH远程连接Linux</title>
+    <url>/posts/26478/</url>
+    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
+<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>重启SSH服务 <code>sudo service sshd start</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>SSH连接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu关闭桌面GUI</title>
     <url>/posts/13204/</url>
     <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
@@ -913,22 +929,6 @@
       </categories>
       <tags>
         <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH远程连接Linux</title>
-    <url>/posts/26478/</url>
-    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
-<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<p>重启SSH服务 <code>sudo service sshd start</code></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>SSH连接</tag>
       </tags>
   </entry>
   <entry>
@@ -1269,6 +1269,27 @@
       </tags>
   </entry>
   <entry>
+    <title>AppImage软件包的运行方法</title>
+    <url>/posts/8207/</url>
+    <content><![CDATA[<h2 id="AppImage软件运行方法"><a href="#AppImage软件运行方法" class="headerlink" title="AppImage软件运行方法"></a>AppImage软件运行方法</h2><p>比如我要运行 <code>Joplin.AppImage</code> 这个Applmage软件，直接双击就可以运行了</p>
+<p>如果提示没有运行AppImage软件的权限</p>
+<ol>
+<li>则执行以下命令来授予其执行权限：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u + x AppImage软件名</span><br><span class="line">./AppImage软件名			//运行AppImage软件</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="卸载AppImage软件"><a href="#卸载AppImage软件" class="headerlink" title="卸载AppImage软件"></a>卸载AppImage软件</h3><p>直接删除AppImage软件包即可</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装Ubuntu的一些小问题</title>
     <url>/posts/63450/</url>
     <content><![CDATA[<blockquote>
@@ -1316,24 +1337,54 @@
       </tags>
   </entry>
   <entry>
-    <title>AppImage软件包的运行方法</title>
-    <url>/posts/8207/</url>
-    <content><![CDATA[<h2 id="AppImage软件运行方法"><a href="#AppImage软件运行方法" class="headerlink" title="AppImage软件运行方法"></a>AppImage软件运行方法</h2><p>比如我要运行 <code>Joplin.AppImage</code> 这个Applmage软件，直接双击就可以运行了</p>
-<p>如果提示没有运行AppImage软件的权限</p>
-<ol>
-<li>则执行以下命令来授予其执行权限：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u + x AppImage软件名</span><br><span class="line">./AppImage软件名			//运行AppImage软件</span><br></pre></td></tr></table></figure>
+    <title>Butterfly主题所需要的运行插件</title>
+    <url>/posts/27760/</url>
+    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>修改主题的<code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录中的 <code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="卸载AppImage软件"><a href="#卸载AppImage软件" class="headerlink" title="卸载AppImage软件"></a>卸载AppImage软件</h3><p>直接删除AppImage软件包即可</p>
+<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
+
+<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Web</category>
       </categories>
       <tags>
-        <tag>Linux命令</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1429,57 +1480,6 @@
 <hr>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="安装-yarn-软件包管理器"><a href="#安装-yarn-软件包管理器" class="headerlink" title="安装  yarn 软件包管理器"></a>安装  yarn 软件包管理器</h3><p>在自己的博客文件夹里面打开终端，输入以下三行命令即可</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Butterfly主题所需要的运行插件</title>
-    <url>/posts/27760/</url>
-    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>修改主题的<code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录中的 <code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
-
-<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
