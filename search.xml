@@ -914,24 +914,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu关闭桌面GUI</title>
-    <url>/posts/13204/</url>
-    <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>永久开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
-
-<p>开启或关闭要重启系统之后才能看到效果</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu创建桌面快捷方式</title>
     <url>/posts/41178/</url>
     <content><![CDATA[<h2 id="创建桌面快捷方式"><a href="#创建桌面快捷方式" class="headerlink" title="创建桌面快捷方式"></a>创建桌面快捷方式</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>给IntelliJ Idea、Pytharm创建桌面快捷方式，打开终端，输入一下命令</p>
@@ -965,22 +947,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux删除非空文件夹命令</title>
-    <url>/posts/25198/</url>
-    <content><![CDATA[<h2 id="删除非空文件夹"><a href="#删除非空文件夹" class="headerlink" title="删除非空文件夹"></a>删除非空文件夹</h2><blockquote>
-<p>参考<a href="https://blog.csdn.net/qq_33835307/article/details/88251162">Ubuntu 强制删除文件夹（非空）</a></p>
-</blockquote>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf 文件夹的名称</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -f 文件名</span><br></pre></td></tr></table></figure>
+    <title>Ubuntu关闭桌面GUI</title>
+    <url>/posts/13204/</url>
+    <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
 
-<p>补充说明：执行rm指令可删除文件或目录，如欲删除目录必须加上参数”-r”，否则预设仅会删除文件。</p>
-<p>代码参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-d或–directory 　直接把欲删除的目录的硬连接数据删成0，删除该目录。 </span><br><span class="line">-f或–force 　强制删除文件或目录。 </span><br><span class="line">-i或–interactive 　删除既有文件或目录之前先询问用户。 </span><br><span class="line">-r或-R或–recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。 </span><br><span class="line">-v或–verbose 　显示指令执行过程。</span><br></pre></td></tr></table></figure>
+<p>永久开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
 
-<p><strong>具体操作</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">删除文件夹</span><br><span class="line"><span class="built_in">rm</span> -rf code</span><br><span class="line">将会删除code目录以及其下所有文件、文件夹。（注意一定要加 -r 不然很麻烦。）</span><br><span class="line"></span><br><span class="line">删除文件</span><br><span class="line"><span class="built_in">rm</span> -f  001.cpp</span><br></pre></td></tr></table></figure>
-
-<hr>
+<p>开启或关闭要重启系统之后才能看到效果</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -1018,6 +993,31 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure>
 
 <p>这条命令很安全，而且会释放几百 MB 的磁盘空间。</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux删除非空文件夹命令</title>
+    <url>/posts/25198/</url>
+    <content><![CDATA[<h2 id="删除非空文件夹"><a href="#删除非空文件夹" class="headerlink" title="删除非空文件夹"></a>删除非空文件夹</h2><blockquote>
+<p>参考<a href="https://blog.csdn.net/qq_33835307/article/details/88251162">Ubuntu 强制删除文件夹（非空）</a></p>
+</blockquote>
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf 文件夹的名称</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -f 文件名</span><br></pre></td></tr></table></figure>
+
+<p>补充说明：执行rm指令可删除文件或目录，如欲删除目录必须加上参数”-r”，否则预设仅会删除文件。</p>
+<p>代码参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-d或–directory 　直接把欲删除的目录的硬连接数据删成0，删除该目录。 </span><br><span class="line">-f或–force 　强制删除文件或目录。 </span><br><span class="line">-i或–interactive 　删除既有文件或目录之前先询问用户。 </span><br><span class="line">-r或-R或–recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。 </span><br><span class="line">-v或–verbose 　显示指令执行过程。</span><br></pre></td></tr></table></figure>
+
+<p><strong>具体操作</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">删除文件夹</span><br><span class="line"><span class="built_in">rm</span> -rf code</span><br><span class="line">将会删除code目录以及其下所有文件、文件夹。（注意一定要加 -r 不然很麻烦。）</span><br><span class="line"></span><br><span class="line">删除文件</span><br><span class="line"><span class="built_in">rm</span> -f  001.cpp</span><br></pre></td></tr></table></figure>
+
 <hr>
 ]]></content>
       <categories>
