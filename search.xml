@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Windows快捷键</title>
+    <url>/posts/57445/</url>
+    <content><![CDATA[<p>Windows快捷键：</p>
+<ol>
+<li><p>edge浏览器快捷键：</p>
+<ul>
+<li>调出收藏夹：<code>Ctrl+shift+B</code></li>
+<li>开发者工具：<code>ctrl+shift+i</code></li>
+<li>恢复关闭页面：<code>ctrl+shift+t</code></li>
+</ul>
+</li>
+<li><p>Windows快捷键：</p>
+<ul>
+<li>打开文件夹：<code>win+E</code></li>
+<li>所有应用最小化：<code>win+D</code></li>
+<li>快速运行窗口：<code>win+R</code></li>
+<li>任务管理器：<code>ctrl+shift+esc</code></li>
+<li>复制：<code>ctrl+c</code></li>
+<li>粘贴：<code>ctrl+v</code></li>
+<li>剪切：<code>ctrl+x</code></li>
+<li>截图：<code>win+prt scr</code></li>
+<li>关闭当前窗口：<code>alt+F4</code></li>
+<li>创建新桌面：<code>ctrl+win+d</code></li>
+<li>切换桌面：<code>win+左右键</code></li>
+<li>删除当前桌面：<code>ctrl + win + F4</code></li>
+<li>打开设置：<code>win + i</code></li>
+<li>打开剪切板：<code>win + v</code></li>
+<li>调整应用窗口大小：<code>win+上下左右键</code></li>
+<li>切换应用：<code>alt+tab</code></li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora快捷键</title>
     <url>/posts/28528/</url>
     <content><![CDATA[<p><strong>Typora：快捷键</strong></p>
@@ -46,47 +87,6 @@
       </categories>
       <tags>
         <tag>Typora快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows快捷键</title>
-    <url>/posts/57445/</url>
-    <content><![CDATA[<p>Windows快捷键：</p>
-<ol>
-<li><p>edge浏览器快捷键：</p>
-<ul>
-<li>调出收藏夹：<code>Ctrl+shift+B</code></li>
-<li>开发者工具：<code>ctrl+shift+i</code></li>
-<li>恢复关闭页面：<code>ctrl+shift+t</code></li>
-</ul>
-</li>
-<li><p>Windows快捷键：</p>
-<ul>
-<li>打开文件夹：<code>win+E</code></li>
-<li>所有应用最小化：<code>win+D</code></li>
-<li>快速运行窗口：<code>win+R</code></li>
-<li>任务管理器：<code>ctrl+shift+esc</code></li>
-<li>复制：<code>ctrl+c</code></li>
-<li>粘贴：<code>ctrl+v</code></li>
-<li>剪切：<code>ctrl+x</code></li>
-<li>截图：<code>win+prt scr</code></li>
-<li>关闭当前窗口：<code>alt+F4</code></li>
-<li>创建新桌面：<code>ctrl+win+d</code></li>
-<li>切换桌面：<code>win+左右键</code></li>
-<li>删除当前桌面：<code>ctrl + win + F4</code></li>
-<li>打开设置：<code>win + i</code></li>
-<li>打开剪切板：<code>win + v</code></li>
-<li>调整应用窗口大小：<code>win+上下左右键</code></li>
-<li>切换应用：<code>alt+tab</code></li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -898,6 +898,22 @@
       </tags>
   </entry>
   <entry>
+    <title>SSH远程连接Linux</title>
+    <url>/posts/26478/</url>
+    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
+<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>重启SSH服务 <code>sudo service sshd start</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>SSH连接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu关闭桌面GUI</title>
     <url>/posts/13204/</url>
     <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
@@ -913,22 +929,6 @@
       </categories>
       <tags>
         <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH远程连接Linux</title>
-    <url>/posts/26478/</url>
-    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
-<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<p>重启SSH服务 <code>sudo service sshd start</code></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>SSH连接</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,27 +1028,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装Java环境</title>
-    <url>/posts/58849/</url>
-    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
-<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
-<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
-<p>在配置环境变量：</p>
-<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
-
-<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu安装Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu安装Windows字体</title>
     <url>/posts/2636/</url>
     <content><![CDATA[<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><blockquote>
@@ -1073,6 +1052,27 @@
       </categories>
       <tags>
         <tag>Ubuntu安装字体</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装Java环境</title>
+    <url>/posts/58849/</url>
+    <content><![CDATA[<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>参考视频：<a href="https://www.bilibili.com/video/BV1df4y1c77Z?spm_id_from=333.880.my_history.page.click&vd_source=207adfe24392140f033825e8f4537f32">ubuntu操作系统下手动下载安装java</a> </p>
+<p>在终端中运行：<code>wget https://cdn.azul.com/zulu/bin/zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>然后解压：<code>tar -zvxf zulu8.56.0.21-ca-jdk8.0.302-linux_x64.tar.gz</code></p>
+<p>把解压的文件移动到&#x2F;usr&#x2F;local文件夹下并改名为java :<code>sudo mv zulu8.56.0.21-ca-jdk8.0.302-linux_x64 /usr/local/java</code></p>
+<p>在配置环境变量：</p>
+<p>在终端中输入<code>vim ~/.bashrc</code> ，然后在最上面添加下面两行路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java     //这是增加环境变量，输入java的路径</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/java/bin		//添加环境路径</span><br></pre></td></tr></table></figure>
+
+<p>然后按左上角的esc键，在输入 <code>:wq!</code> 回车即可保存，然后关闭终端在重新打开终端，在输入java或javac即可正常显示</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu安装Java</tag>
       </tags>
   </entry>
   <entry>
