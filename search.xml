@@ -388,6 +388,48 @@
       </tags>
   </entry>
   <entry>
+    <title>MTPuTTY连接工具</title>
+    <url>/posts/55650/</url>
+    <content><![CDATA[<blockquote>
+<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
+<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
+</blockquote>
+<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
+<p><strong>PuTTY主页</strong></p>
+<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
+<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
+<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
+<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
+<hr>
+<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
+<hr>
+<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
+<hr>
+<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
+<hr>
+<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
+<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
+<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
+<p><strong>保存设置信息</strong></p>
+<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
+<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
+<hr>
+<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
+<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
+<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
+<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
+<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
+<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>SSH软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VMware搭建本地服务器</title>
     <url>/posts/42536/</url>
     <content><![CDATA[<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
@@ -488,48 +530,6 @@
       </categories>
       <tags>
         <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MTPuTTY连接工具</title>
-    <url>/posts/55650/</url>
-    <content><![CDATA[<blockquote>
-<h4 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h4><p>导出自己的putty注册表文件，命令 <code>reg export HKEY_CURRENT_USER\Software\SimonTatham\PuTTY d://putty.reg</code> 将putty的注册表文件导到D盘中</p>
-<h4 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h4><p>将导出的putty.reg文件复制到新的电脑中，双击它即可导入注册表</p>
-</blockquote>
-<h2 id="配置PuTTY"><a href="#配置PuTTY" class="headerlink" title="配置PuTTY"></a>配置PuTTY</h2><p>PuTTY，一个老牌的SSH连接工具了，过于老牌，所以使用界面比较丑，而且还不能保存服务器的用户和密码，虽然官方说的是为了安全性，但是对于我而言，频繁的输入用户名以及密码很是麻烦，所以我这里推荐一个PuTTY的外挂软件MTPuTTY，这个软件可以说是弥补了PuTTY的缺点，可以保存服务器用户名以及密码，这样就不需要每次连接服务器都要输入用户和密码了，这个软件是基于PuTTY的，所以在此之前先了解一下PuTTY的一些使用方法</p>
-<p><strong>PuTTY主页</strong></p>
-<p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5.png"></p>
-<h3 id="设置IP地址"><a href="#设置IP地址" class="headerlink" title="设置IP地址"></a>设置IP地址</h3><p><img src="/posts/55650/PuTTY%E4%B8%BB%E9%A1%B5%E4%BF%A1%E6%81%AF.png"></p>
-<h3 id="推荐终端样式"><a href="#推荐终端样式" class="headerlink" title="推荐终端样式"></a>推荐终端样式</h3><p>我这里已经准备好了这几个主题的配置文件（注册表），只需要双击运行即可保存这些主题文件，下载地址：<a href="https://wwwl.lanzouw.com/iZYrR0pwlove">https://wwwl.lanzouw.com/iZYrR0pwlove</a> 密码:<code>9s09</code></p>
-<h4 id="White："><a href="#White：" class="headerlink" title="White："></a>White：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F1.png"></p>
-<hr>
-<h4 id="Light-Green："><a href="#Light-Green：" class="headerlink" title="Light Green："></a>Light Green：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F2.png"></p>
-<hr>
-<h4 id="Light-Blue："><a href="#Light-Blue：" class="headerlink" title="Light Blue："></a>Light Blue：</h4><p><img src="/posts/55650/%E7%BB%88%E7%AB%AF%E6%A0%B7%E5%BC%8F%E7%99%BD%E8%89%B2.png"></p>
-<hr>
-<h4 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h4><p><img src="/posts/55650/Windwos.png"></p>
-<hr>
-<h3 id="手动设置"><a href="#手动设置" class="headerlink" title="手动设置"></a>手动设置</h3><p><strong>设置终端字体以及大小</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.png"></p>
-<p><strong>设置终端的背景颜色以及字体颜色</strong></p>
-<p><img src="/posts/55650/%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2.png"></p>
-<p><strong>保存设置信息</strong></p>
-<p>点击右边的Session，自己的服务器信息可填可不填，然后点击save保存，这样你上面设置的那些设置就保存好了，以后点击Color2在点Load就可以使用上面设置好的设置了</p>
-<p><img src="/posts/55650/%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png"></p>
-<hr>
-<h2 id="MTPuTTY配置"><a href="#MTPuTTY配置" class="headerlink" title="MTPuTTY配置"></a>MTPuTTY配置</h2><h3 id="选择PuTTY安装路径"><a href="#选择PuTTY安装路径" class="headerlink" title="选择PuTTY安装路径"></a>选择PuTTY安装路径</h3><p><img src="/posts/55650/%E9%80%89%E6%8B%A9PuTTY%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png"></p>
-<h3 id="MTPuTTY基本使用教程"><a href="#MTPuTTY基本使用教程" class="headerlink" title="MTPuTTY基本使用教程"></a>MTPuTTY基本使用教程</h3><p><img src="/posts/55650/MTPuTTY%E4%B8%BB%E9%A1%B5%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.png"></p>
-<p><img src="/posts/55650/MTPuTTY%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
-<h3 id="MTPuTTY设置"><a href="#MTPuTTY设置" class="headerlink" title="MTPuTTY设置"></a>MTPuTTY设置</h3><p><code>Tools --&gt; Settings</code> ，打开设置</p>
-<p><img src="/posts/55650/MTPuTTY%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E.png"></p>
-<h3 id="MTPuTTY主题设置"><a href="#MTPuTTY主题设置" class="headerlink" title="MTPuTTY主题设置"></a>MTPuTTY主题设置</h3><p><code>Tools --&gt; UI theme</code> 设置<code>MTPuTTY</code>主题</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>SSH软件</tag>
       </tags>
   </entry>
   <entry>
@@ -898,22 +898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SSH远程连接Linux</title>
-    <url>/posts/26478/</url>
-    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
-<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<p>重启SSH服务 <code>sudo service sshd start</code></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>SSH连接</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu关闭桌面GUI</title>
     <url>/posts/13204/</url>
     <content><![CDATA[<h2 id="关闭桌面GUI"><a href="#关闭桌面GUI" class="headerlink" title="关闭桌面GUI"></a>关闭桌面GUI</h2><p>永久关闭</p>
@@ -929,6 +913,22 @@
       </categories>
       <tags>
         <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSH远程连接Linux</title>
+    <url>/posts/26478/</url>
+    <content><![CDATA[<p>安装SSH工具 <code>sudo apt install openssh-server</code></p>
+<p>编辑SSH配置文件 <code>vim /etc/ssh/sshd_config</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 找到下面这三行代码，将前面的注释取消掉</span><br><span class="line">// 如果配置文件中的代码和下面的代码不一样，则改成一样的即可</span><br><span class="line">// SSH端口号</span><br><span class="line">Port 22</span><br><span class="line">// 允许远程登录</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span></span><br><span class="line">// 开启用户名和密码登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>重启SSH服务 <code>sudo service sshd start</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>SSH连接</tag>
       </tags>
   </entry>
   <entry>
@@ -1106,6 +1106,56 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu星火软件推荐</title>
+    <url>/posts/4323/</url>
+    <content><![CDATA[<h2 id="安装星火软件商店"><a href="#安装星火软件商店" class="headerlink" title="安装星火软件商店"></a>安装星火软件商店</h2><p>星火软件商店官网：<a href="https://spark-app.store/">星火应用商店</a></p>
+<p>第一步，安装依赖，<strong>如果你是Deepin、UOS或者Ubuntu22.04系统，则不需要安装依赖文件</strong> </p>
+<p><img src="/posts/4323/%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97%E9%A6%96%E9%A1%B5.png"></p>
+<p><img src="/posts/4323/%E4%B8%8B%E8%BD%BD%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97.png"></p>
+<p>点击星火软件商店下载按钮，则会自动跳转到 gitee 上 <img src="/posts/4323/gitee%E4%B8%8A%E4%B8%8B%E8%BD%BD%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97.png"></p>
+<p><strong>注意：如果你是Deepin、UOS或者Ubuntu22.04系统，则不需要安装依赖文件，直接安装即可</strong></p>
+<p>官网下载的依赖包里面有两个文件夹，一个是Debian10和Ubuntu20.04的依赖包，一个是Debian11的依赖包，这两个依赖包文件夹里面都有一个 <code>一键安装.sh</code> 的脚本，在依赖包文件目录里面打开终端，输入 <code>sudo ./一键安装.sh</code> 即可运行 <code>sh</code> 脚本，这时依赖则会自动安装。</p>
+<p>依赖安装完成之后再安装星火软件商店，先进入到星火软件商店软件包的下载目录里面，打开终端，输入 <code>sudo apt install ./星火软件商店的全名</code> ，比如星火软件商店的软件包全名叫 <code>spark-store_3.3.0.3_amd64.deb</code> ，那么终端中输入的命令则是 <code>sudo apt install ./spark-store_3.3.0.3_amd64.deb</code> ,然后等待安装即可，安装完成之后就可以在星火软件商店里面安装软件了，<strong>也再此感谢那些为Linux软件生态做贡献的开发者们！</strong></p>
+<hr>
+<h2 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h2><p>Linux日常软件推荐：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">开发软件：IntelliJ Idea、Pytharm、小熊猫C++（星火）、VS code、vim、sublime text</span><br><span class="line">虚拟机：VirtualBox、VMware Player</span><br><span class="line">办公：WPS、Typora（星火）、文本编辑器</span><br><span class="line">视频播放器：VLC</span><br><span class="line">图片查看器：gThumb</span><br><span class="line">软件下载商店：星火商店、新立得软件包管理器、浏览器</span><br><span class="line">聊天软件：QQ（wine）、微信（wine）、TIM（wine）、腾讯会议（wine）</span><br><span class="line">浏览器：Google浏览器、火狐浏览器、Edge浏览器</span><br><span class="line">修图软件：GIMP、Krita、Ps（wine）、Ai（wine）、PhotoGIMP（星火）</span><br><span class="line">图标设计：Inkscape</span><br><span class="line">视频剪辑：达芬奇、剪映专业版（wine）、必剪（wine）、Shotcut（星火）、Kdenlive、昆冈剪辑(星火)、lightworks（星火）</span><br><span class="line">下载器：迅雷（星火）、Motrix（星火）</span><br><span class="line">3D建模软件：大雄CAD（wine）、尧创CAD（wine）</span><br><span class="line">录屏软件：OBS、SimpleScreenRecorder</span><br><span class="line">下载游戏：Steam、星火商店</span><br><span class="line">加速器：Steam++</span><br><span class="line">多线程下载器：XDM，FDM</span><br></pre></td></tr></table></figure>
+
+<p>以上软件仅供参考，标注 <code>（星火）</code> 的软件推荐使用星火商店下载，标注 <code>wine</code> 的软件推荐星火商店下载，其它的没有标注的软件随便</p>
+<p><strong>注：星火商店只支持Ubuntu20.04以上的系统，所以要体验星火商店的用Ubuntu20.04以上的即可</strong></p>
+<p><strong>安装命令:</strong></p>
+<p>有些软件因为下载的比较慢，所以推荐在星火商店里下载</p>
+<p>有些软件在终端里无法搜索出来，这时候可以尝试在新立得软件包管理器里面搜索，新立得软件包管理器也搜索不了的，就推荐在官网下载或者星火商店里面下载，如果你没有网络限制，那就推荐在官网下载，软件商店里的有些软件有点老旧，看自己取舍。</p>
+<p><strong>IntelliJ Idea、Pytharm</strong>这两个软件在官网中下载了之后解压，软件包里面有个bin文件夹，在该文件夹里面执行启动命令</p>
+<p><strong>IntelliJ Idea的启动方法：</strong>IntelliJ Idea下载之后解压里面有个bin文件夹，在bin文件夹里面打开终端，输入 <code>./idea.sh</code> ，在回车即可启动IntelliJ Idea软件</p>
+<p><strong>Pytharm的启动方法：</strong>Pytharm下载之后解压里面有个bin文件夹，在bin文件夹里面打开终端，输入 <code>./pytharm.sh</code> ，在回车即可启动Pytharm软件</p>
+<p><strong>vim安装</strong></p>
+<p><code>sudo apt-get install vim</code></p>
+<p><strong>sublime text安装</strong></p>
+<p>官方有详细的文档</p>
+<p><strong>VirtualBox安装</strong></p>
+<p><code>sudo apt-get install virtualbox</code></p>
+<p><strong>VMware虚拟机安装</strong></p>
+<p>首先在官方下载VMware虚拟机的执行文件，其后缀名为 <code>.bundle</code> ，然后在你下载bundle的文件夹下打开终端，输入 <code>sudo ./你bundle文件的全称</code> ，例如：我下载的VMware虚拟机的名字叫 <code>VMware-Player-Full-16.2.4-20089737.x86_64.bundle</code> 那么就在终端输入 <code>sudo ./VMware-Player-Full-16.2.4-20089737.x86_64.bundle</code> 就可以执行安装程序了，这样，VMware虚拟机就自动安装了</p>
+<p><strong>WPS安装</strong></p>
+<p>下载了WPS的软件包之后，在软件包的位置打开终端，在终端执行 <code>sudo apt-get install ./WPS的全称</code> </p>
+<p><strong>VLC安装</strong></p>
+<p><code>sudo apt-get install vlc</code></p>
+<p><strong>gThumb安装</strong></p>
+<p><code>sudo apt-get install gThumb</code> </p>
+<p><strong>Google浏览器安装</strong></p>
+<p>在官网下载Google浏览器软件包之后，在软件包的位置打开终端，在终端输入  <code>sudo apt-get install ./Google浏览器的全称</code> </p>
+<p>其他的软件以此类推，下载的软件包，在软件包位置打开终端，输入 <code>sudo apt-get install ./软件包全称</code> </p>
+<p>在终端下载软件则输入 <code>sudo apt-get install 软件包的名称</code>，注意大小写，如果终端里搜索不到软件包，那么就在新立得软件包管理器里面搜索下载，新立得软件包管理器里面也没有的那就看看星火商店，星火商店里面也没有的就去官网</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>星火商店</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu移除snap包</title>
     <url>/posts/35080/</url>
     <content><![CDATA[<h2 id="移除Ubuntu中的snap软件包以及snap安装器"><a href="#移除Ubuntu中的snap软件包以及snap安装器" class="headerlink" title="移除Ubuntu中的snap软件包以及snap安装器"></a>移除Ubuntu中的snap软件包以及snap安装器</h2><blockquote>
@@ -1159,56 +1209,6 @@
       </categories>
       <tags>
         <tag>移除snap包</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu星火软件推荐</title>
-    <url>/posts/4323/</url>
-    <content><![CDATA[<h2 id="安装星火软件商店"><a href="#安装星火软件商店" class="headerlink" title="安装星火软件商店"></a>安装星火软件商店</h2><p>星火软件商店官网：<a href="https://spark-app.store/">星火应用商店</a></p>
-<p>第一步，安装依赖，<strong>如果你是Deepin、UOS或者Ubuntu22.04系统，则不需要安装依赖文件</strong> </p>
-<p><img src="/posts/4323/%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97%E9%A6%96%E9%A1%B5.png"></p>
-<p><img src="/posts/4323/%E4%B8%8B%E8%BD%BD%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97.png"></p>
-<p>点击星火软件商店下载按钮，则会自动跳转到 gitee 上 <img src="/posts/4323/gitee%E4%B8%8A%E4%B8%8B%E8%BD%BD%E6%98%9F%E7%81%AB%E8%BD%AF%E4%BB%B6%E5%95%86%E5%BA%97.png"></p>
-<p><strong>注意：如果你是Deepin、UOS或者Ubuntu22.04系统，则不需要安装依赖文件，直接安装即可</strong></p>
-<p>官网下载的依赖包里面有两个文件夹，一个是Debian10和Ubuntu20.04的依赖包，一个是Debian11的依赖包，这两个依赖包文件夹里面都有一个 <code>一键安装.sh</code> 的脚本，在依赖包文件目录里面打开终端，输入 <code>sudo ./一键安装.sh</code> 即可运行 <code>sh</code> 脚本，这时依赖则会自动安装。</p>
-<p>依赖安装完成之后再安装星火软件商店，先进入到星火软件商店软件包的下载目录里面，打开终端，输入 <code>sudo apt install ./星火软件商店的全名</code> ，比如星火软件商店的软件包全名叫 <code>spark-store_3.3.0.3_amd64.deb</code> ，那么终端中输入的命令则是 <code>sudo apt install ./spark-store_3.3.0.3_amd64.deb</code> ,然后等待安装即可，安装完成之后就可以在星火软件商店里面安装软件了，<strong>也再此感谢那些为Linux软件生态做贡献的开发者们！</strong></p>
-<hr>
-<h2 id="软件推荐"><a href="#软件推荐" class="headerlink" title="软件推荐"></a>软件推荐</h2><p>Linux日常软件推荐：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">开发软件：IntelliJ Idea、Pytharm、小熊猫C++（星火）、VS code、vim、sublime text</span><br><span class="line">虚拟机：VirtualBox、VMware Player</span><br><span class="line">办公：WPS、Typora（星火）、文本编辑器</span><br><span class="line">视频播放器：VLC</span><br><span class="line">图片查看器：gThumb</span><br><span class="line">软件下载商店：星火商店、新立得软件包管理器、浏览器</span><br><span class="line">聊天软件：QQ（wine）、微信（wine）、TIM（wine）、腾讯会议（wine）</span><br><span class="line">浏览器：Google浏览器、火狐浏览器、Edge浏览器</span><br><span class="line">修图软件：GIMP、Krita、Ps（wine）、Ai（wine）、PhotoGIMP（星火）</span><br><span class="line">图标设计：Inkscape</span><br><span class="line">视频剪辑：达芬奇、剪映专业版（wine）、必剪（wine）、Shotcut（星火）、Kdenlive、昆冈剪辑(星火)、lightworks（星火）</span><br><span class="line">下载器：迅雷（星火）、Motrix（星火）</span><br><span class="line">3D建模软件：大雄CAD（wine）、尧创CAD（wine）</span><br><span class="line">录屏软件：OBS、SimpleScreenRecorder</span><br><span class="line">下载游戏：Steam、星火商店</span><br><span class="line">加速器：Steam++</span><br><span class="line">多线程下载器：XDM，FDM</span><br></pre></td></tr></table></figure>
-
-<p>以上软件仅供参考，标注 <code>（星火）</code> 的软件推荐使用星火商店下载，标注 <code>wine</code> 的软件推荐星火商店下载，其它的没有标注的软件随便</p>
-<p><strong>注：星火商店只支持Ubuntu20.04以上的系统，所以要体验星火商店的用Ubuntu20.04以上的即可</strong></p>
-<p><strong>安装命令:</strong></p>
-<p>有些软件因为下载的比较慢，所以推荐在星火商店里下载</p>
-<p>有些软件在终端里无法搜索出来，这时候可以尝试在新立得软件包管理器里面搜索，新立得软件包管理器也搜索不了的，就推荐在官网下载或者星火商店里面下载，如果你没有网络限制，那就推荐在官网下载，软件商店里的有些软件有点老旧，看自己取舍。</p>
-<p><strong>IntelliJ Idea、Pytharm</strong>这两个软件在官网中下载了之后解压，软件包里面有个bin文件夹，在该文件夹里面执行启动命令</p>
-<p><strong>IntelliJ Idea的启动方法：</strong>IntelliJ Idea下载之后解压里面有个bin文件夹，在bin文件夹里面打开终端，输入 <code>./idea.sh</code> ，在回车即可启动IntelliJ Idea软件</p>
-<p><strong>Pytharm的启动方法：</strong>Pytharm下载之后解压里面有个bin文件夹，在bin文件夹里面打开终端，输入 <code>./pytharm.sh</code> ，在回车即可启动Pytharm软件</p>
-<p><strong>vim安装</strong></p>
-<p><code>sudo apt-get install vim</code></p>
-<p><strong>sublime text安装</strong></p>
-<p>官方有详细的文档</p>
-<p><strong>VirtualBox安装</strong></p>
-<p><code>sudo apt-get install virtualbox</code></p>
-<p><strong>VMware虚拟机安装</strong></p>
-<p>首先在官方下载VMware虚拟机的执行文件，其后缀名为 <code>.bundle</code> ，然后在你下载bundle的文件夹下打开终端，输入 <code>sudo ./你bundle文件的全称</code> ，例如：我下载的VMware虚拟机的名字叫 <code>VMware-Player-Full-16.2.4-20089737.x86_64.bundle</code> 那么就在终端输入 <code>sudo ./VMware-Player-Full-16.2.4-20089737.x86_64.bundle</code> 就可以执行安装程序了，这样，VMware虚拟机就自动安装了</p>
-<p><strong>WPS安装</strong></p>
-<p>下载了WPS的软件包之后，在软件包的位置打开终端，在终端执行 <code>sudo apt-get install ./WPS的全称</code> </p>
-<p><strong>VLC安装</strong></p>
-<p><code>sudo apt-get install vlc</code></p>
-<p><strong>gThumb安装</strong></p>
-<p><code>sudo apt-get install gThumb</code> </p>
-<p><strong>Google浏览器安装</strong></p>
-<p>在官网下载Google浏览器软件包之后，在软件包的位置打开终端，在终端输入  <code>sudo apt-get install ./Google浏览器的全称</code> </p>
-<p>其他的软件以此类推，下载的软件包，在软件包位置打开终端，输入 <code>sudo apt-get install ./软件包全称</code> </p>
-<p>在终端下载软件则输入 <code>sudo apt-get install 软件包的名称</code>，注意大小写，如果终端里搜索不到软件包，那么就在新立得软件包管理器里面搜索下载，新立得软件包管理器里面也没有的那就看看星火商店，星火商店里面也没有的就去官网</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>星火商店</tag>
       </tags>
   </entry>
   <entry>
@@ -1269,27 +1269,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AppImage软件包的运行方法</title>
-    <url>/posts/8207/</url>
-    <content><![CDATA[<h2 id="AppImage软件运行方法"><a href="#AppImage软件运行方法" class="headerlink" title="AppImage软件运行方法"></a>AppImage软件运行方法</h2><p>比如我要运行 <code>Joplin.AppImage</code> 这个Applmage软件，直接双击就可以运行了</p>
-<p>如果提示没有运行AppImage软件的权限</p>
-<ol>
-<li>则执行以下命令来授予其执行权限：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u + x AppImage软件名</span><br><span class="line">./AppImage软件名			//运行AppImage软件</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="卸载AppImage软件"><a href="#卸载AppImage软件" class="headerlink" title="卸载AppImage软件"></a>卸载AppImage软件</h3><p>直接删除AppImage软件包即可</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安装Ubuntu的一些小问题</title>
     <url>/posts/63450/</url>
     <content><![CDATA[<blockquote>
@@ -1337,54 +1316,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Butterfly主题所需要的运行插件</title>
-    <url>/posts/27760/</url>
-    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>修改主题的<code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录中的 <code>_config</code>文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+    <title>AppImage软件包的运行方法</title>
+    <url>/posts/8207/</url>
+    <content><![CDATA[<h2 id="AppImage软件运行方法"><a href="#AppImage软件运行方法" class="headerlink" title="AppImage软件运行方法"></a>AppImage软件运行方法</h2><p>比如我要运行 <code>Joplin.AppImage</code> 这个Applmage软件，直接双击就可以运行了</p>
+<p>如果提示没有运行AppImage软件的权限</p>
+<ol>
+<li>则执行以下命令来授予其执行权限：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u + x AppImage软件名</span><br><span class="line">./AppImage软件名			//运行AppImage软件</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
-
-<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
-
+<h3 id="卸载AppImage软件"><a href="#卸载AppImage软件" class="headerlink" title="卸载AppImage软件"></a>卸载AppImage软件</h3><p>直接删除AppImage软件包即可</p>
 ]]></content>
       <categories>
-        <category>Web</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Linux命令</tag>
       </tags>
   </entry>
   <entry>
@@ -1480,6 +1429,57 @@
 <hr>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="安装-yarn-软件包管理器"><a href="#安装-yarn-软件包管理器" class="headerlink" title="安装  yarn 软件包管理器"></a>安装  yarn 软件包管理器</h3><p>在自己的博客文件夹里面打开终端，输入以下三行命令即可</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i yarn -g</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题所需要的运行插件</title>
+    <url>/posts/27760/</url>
+    <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>修改主题的<code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search（本地搜索）</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 预加载</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录中的 <code>_config</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Git部署插件"><a href="#Git部署插件" class="headerlink" title="Git部署插件"></a>Git部署插件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Gulp压缩博客资源（可选）"><a href="#Gulp压缩博客资源（可选）" class="headerlink" title="Gulp压缩博客资源（可选）"></a>Gulp压缩博客资源（可选）</h2><p>安装Gulp插件：在博客根目录打开终端，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">cnpm install gulp --save <span class="comment">#安装gulp插件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-压缩HTML"><a href="#1-压缩HTML" class="headerlink" title="1.压缩HTML"></a>1.压缩HTML</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-htmlclean --save-dev</span><br><span class="line">cnpm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-压缩CSS"><a href="#2-压缩CSS" class="headerlink" title="2.压缩CSS"></a>2.压缩CSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-压缩JS"><a href="#3-压缩JS" class="headerlink" title="3.压缩JS"></a>3.压缩JS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-压缩字体"><a href="#4-压缩字体" class="headerlink" title="4.压缩字体"></a>4.压缩字体</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install gulp-fontmin --save-dev</span><br></pre></td></tr></table></figure>
+
+<p><strong>在根目录中创建 <code>gulpfile.js</code> ，并输入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fontmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-fontmin&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩字体</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">minifyFont</span>(<span class="params">text, cb</span>) &#123;</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>(<span class="string">&#x27;./public/fonts/*.ttf&#x27;</span>) <span class="comment">//原字体所在目录</span></span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">fontmin</span>(&#123;</span><br><span class="line">      <span class="attr">text</span>: text</span><br><span class="line">    &#125;))</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public/fontsdest/&#x27;</span>)) <span class="comment">//压缩后的输出目录</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, cb);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;mini-font&#x27;</span>, <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> buffers = [];</span><br><span class="line">  gulp</span><br><span class="line">    .<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.html&#x27;</span>]) <span class="comment">//HTML文件所在目录请根据自身情况修改</span></span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">file</span>) &#123;</span><br><span class="line">      buffers.<span class="title function_">push</span>(file.<span class="property">contents</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> text = <span class="title class_">Buffer</span>.<span class="title function_">concat</span>(buffers).<span class="title function_">toString</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="title function_">minifyFont</span>(text, cb);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;mini-font&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo s （或者hexo d）</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链接长度优化插件（可选）"><a href="#链接长度优化插件（可选）" class="headerlink" title="链接长度优化插件（可选）"></a>链接长度优化插件（可选）</h2><p>可以把链接转为数字的插件，配置容易，生成时自动转为数字</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>修改根目录 <code>_config.yml</code> 中的 <code>permalink</code> 参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/ </span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
