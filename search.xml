@@ -109,74 +109,18 @@
 <p>本教程是基于虚拟机安装的</p>
 <p>本人只是把安装Arch时所遇到的坑记录下来并解决总结他，具体还是看Arch-Wiki</p>
 <p>首先配置UEFI启动项<img src="/posts/55769/%E8%AE%BE%E7%BD%AEUEFI%E5%90%AF%E5%8A%A8%E9%A1%B9.png"></p>
-<h2 id="检查网络是否正常"><a href="#检查网络是否正常" class="headerlink" title="检查网络是否正常"></a>检查网络是否正常</h2><p>由于我把虚拟机的DHCP服务关闭了（如果你没有关闭DHCP服务，连接网络的方法则可以参考一下我这篇博文：<a href="https://mao-design.gitee.io/2022/08/23/OpenEuler/openEuler/#%E8%BF%9E%E6%8E%A5%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C">博文连接</a> ，但我没有试过，这篇文章是我好久之前写的，那时我用的还是动态IP，所以并没有关闭虚拟机的DHCP服务，你可以试试，实在不行，则自行百度吧），所以虚拟机不会自动给我的系统分配IP，就需要自己手动设置才可以正常联网,首先查看自己的系统的网卡名字，输入命令 <code>ip addr</code> 来查看自己的网卡名字<img src="/posts/55769/%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF.png"></p>
+<h2 id="检查网络是否正常"><a href="#检查网络是否正常" class="headerlink" title="检查网络是否正常"></a>检查网络是否正常</h2><p>由于我把虚拟机的DHCP服务关闭了（如果你没有关闭DHCP服务，连接网络的方法则可以参考一下我这篇博文：<a href="https://mao-design.gitee.io/posts/12611/">博文连接</a> ，但我没有试过，这篇文章是我好久之前写的，那时我用的还是动态IP，所以并没有关闭虚拟机的DHCP服务，你可以试试，实在不行，则自行百度吧），所以虚拟机不会自动给我的系统分配IP，就需要自己手动设置才可以正常联网,首先查看自己的系统的网卡名字，输入命令 <code>ip addr</code> 来查看自己的网卡名字<img src="/posts/55769/%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF.png"></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 将 IP 地址添加到接口</span><br><span class="line">ip addr add 192.168.201.100/24 dev ens33	//ens33是网卡名，就是我图中标记的</span><br><span class="line"></span><br><span class="line">// 开启ens33网卡</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> dev ens33 up</span><br><span class="line"></span><br><span class="line">// 添加路由</span><br><span class="line">ip route add default via 192.168.205.1</span><br></pre></td></tr></table></figure>
 
 <p>到这一步没猜错的话差不多就可以联网了，测试是否有网络，在终端输入命令 <code>ping www.baidu.com</code> ，如果有列出许多数据包，则说明网络连接成功了，但该方法重启系统之后就失效了，重启系统之后只能在重新设置一遍，所以只是用来临时使用的，等安装好ArchLinux之后在系统里面慢慢配置</p>
 <p>ssh连接arch的live环境之前还需要设置一下root账户的密码，输入命令 <code>passwd</code> 即可设置（输入密码时是看不到密码输入的，自己输入完密码之后回车就可以了）</p>
 <p>基本的网络配置就设置完了，然后就可以使用ssh工具来连接Arch-Live的环境了</p>
-<h2 id="安装Arch之前的准备"><a href="#安装Arch之前的准备" class="headerlink" title="安装Arch之前的准备"></a>安装Arch之前的准备</h2><h2 id="更新时间"><a href="#更新时间" class="headerlink" title="更新时间"></a>更新时间</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl status</span><br></pre></td></tr></table></figure>
+<h2 id="更新时间"><a href="#更新时间" class="headerlink" title="更新时间"></a>更新时间</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">timedatectl status</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="建立硬盘分区"><a href="#建立硬盘分区" class="headerlink" title="建立硬盘分区"></a>建立硬盘分区</h2><p>首先通过 <code>fdisk</code> 命令来查看自己磁盘的信息</p>
-<p>输入命令 <code>fdisk -l</code> </p>
-<p> <img src="/posts/55769/%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF.png"></p>
-<p><code>/dev/sda</code> 就是自己的磁盘名称（如果你有多个磁盘则需注意磁盘名称，以免后面分错区），后面还有磁盘的容量</p>
-<p>磁盘分区更具自己引导方式的不同分的区也不同</p>
-<blockquote>
-<p>根据自己的喜好来分区，下面是我自己使用的一套分区</p>
-</blockquote>
-<p>BIOS启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">boot – 1024 MB</span><br><span class="line"></span><br><span class="line">swap – 4 GB (min 512 MB)</span><br><span class="line"></span><br><span class="line">/ – ~ 1000 GB (remaining space)</span><br></pre></td></tr></table></figure>
-
-<p>UEFI启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/efi – 1024 MB</span><br><span class="line"></span><br><span class="line">swap – 4 GB (min 512 MB)</span><br><span class="line"></span><br><span class="line">/ – ~ 1000 GB (remaining space)</span><br></pre></td></tr></table></figure>
-
-<p>整体差不了多少，就efi分区的不同</p>
-<p>在终端输入命令 <code>cfdisk /dev/sda</code> ，后面的 <code>/dev/sdb</code> 就是你的磁盘名称</p>
-<p> <img src="/posts/55769/cfdisk%E5%88%86%E5%8C%BA%E5%B7%A5%E5%85%B7.png"></p>
-<p> <img src="/posts/55769/%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA.png"></p>
-<p> <img src="/posts/55769/%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F.png"></p>
-<p> <img src="/posts/55769/%E8%AE%BE%E7%BD%AE%E4%B8%BB%E5%88%86%E5%8C%BA.png"></p>
-<p>如果你是BIOS引导的，则boot分区的磁盘格式保持默认即可，如果你是UEFI引导的，则需要把boot分区改为Fat32格式（因为我是用UEFI来引导的，所以我需要把boot分区改为Fat32）</p>
-<h3 id="boot分区（BIOS引导）"><a href="#boot分区（BIOS引导）" class="headerlink" title="boot分区（BIOS引导）"></a>boot分区（BIOS引导）</h3><p> <img src="/posts/55769/boot%E5%88%86%E5%8C%BA.png"></p>
-<h3 id="boot分区（UEFI分区）"><a href="#boot分区（UEFI分区）" class="headerlink" title="boot分区（UEFI分区）"></a>boot分区（UEFI分区）</h3><p> <img src="/posts/55769/%E6%9B%B4%E6%94%B9%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F.png"></p>
-<p> <img src="/posts/55769/%E9%80%89%E6%8B%A9%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F.png"></p>
-<p> <img src="/posts/55769/boot%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F.png"></p>
-<h3 id="swap分区"><a href="#swap分区" class="headerlink" title="swap分区"></a>swap分区</h3><p> <img src="/posts/55769/swap%E5%88%86%E5%8C%BA.png"></p>
-<p> <img src="/posts/55769/swap%E5%88%86%E5%8C%BA%E5%A4%A7%E5%B0%8F.png"></p>
-<p> <img src="/posts/55769/swap%E4%B8%BB%E5%88%86%E5%8C%BA.png"></p>
-<p> <img src="/posts/55769/swap%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F.png"></p>
-<p> <img src="/posts/55769/%E7%A1%AE%E8%AE%A4%E4%B8%BAswap%E6%A0%BC%E5%BC%8F.png"></p>
-<h3 id="根目录"><a href="#根目录" class="headerlink" title="&#x2F; 根目录"></a>&#x2F; 根目录</h3><p> <img src="/posts/55769/%E5%88%9B%E5%BB%BA%E6%A0%B9%E7%9B%AE%E5%BD%95.png"></p>
-<p> <img src="/posts/55769/%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F.png"></p>
-<p> <img src="/posts/55769/%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%BB%E5%88%86%E5%8C%BA.png"></p>
-<p> <img src="/posts/55769/%E5%88%86%E5%8C%BA%E5%AE%8C%E6%88%90.png"></p>
-<p> <img src="/posts/55769/%E4%BF%9D%E5%AD%98%E5%88%86%E5%8C%BA.png" alt="保存分区"></p>
-<p> <strong>然后在输入 yes，回车，既可保存分区</strong></p>
-<p> <img src="/posts/55769/%E4%BF%9D%E5%AD%98%E5%88%86%E5%8C%BA1.png"></p>
-<p> <img src="/posts/55769/%E9%80%80%E5%87%BA%E5%88%86%E5%8C%BA.png"></p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p> <img src="/posts/55769/%E5%88%86%E9%94%99%E5%88%86%E5%8C%BA.png"></p>
-<p>然后在使用 <code>fdisk -l</code> 查看自己的磁盘分区情况</p>
-<p> <img src="/posts/55769/%E5%88%86%E5%8C%BA%E6%83%85%E5%86%B5.png"></p>
-<p>可以看到 <code>/dev/sda</code> 磁盘已经被分为三个区了</p>
-<h2 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h2><p>格式化根分区</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda3</span><br></pre></td></tr></table></figure>
-
-<p>初始化swap分区</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>格式化boot分区（<strong>基于UEFI引导</strong>）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.fat -F 32 /dev/sda1</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>格式化boot分区（<strong>基于BIOS引导</strong>）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext2 /dev/sda1</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><p><strong>注意：</strong> 挂载分区一定要遵循顺序，先挂载根（root）分区（到 <code>/mnt</code>），再挂载引导（boot）分区（到 <code>/mnt/boot</code> 或 <code>/mnt/efi</code>，如果单独分出来了的话），最后再挂载其他分区。否则您可能遇到安装完成后无法启动系统的问题。、</p>
+<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>搜索我的博文：Linux磁盘分区</p>
+<h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><p><strong>注意：</strong> 挂载分区一定要遵循顺序，先挂载根（root）分区（到 <code>/mnt</code>），再挂载引导（boot）分区（到 <code>/mnt/boot</code> 或 <code>/mnt/efi</code>，如果单独分出来了的话），最后再挂载其他分区。否则您可能遇到安装完成后无法启动系统的问题。</p>
 <p>挂载根分区</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/sda3 /mnt</span><br></pre></td></tr></table></figure>
 
@@ -195,11 +139,8 @@
 
 
 
-<h2 id="选择镜像源"><a href="#选择镜像源" class="headerlink" title="选择镜像源"></a>选择镜像源</h2><ul>
-<li>使用reflector命令直接获取中国最快的镜像源并保存到&#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist文件夹下</li>
-<li>命令：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 获取pacman镜像源</span></span><br><span class="line">reflector -c China -a 10 --<span class="built_in">sort</span> rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="comment">## 查看是否有edu.cn的链接信息</span></span><br><span class="line"><span class="built_in">cat</span> /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+<h2 id="选择镜像源"><a href="#选择镜像源" class="headerlink" title="选择镜像源"></a>选择镜像源</h2><p>使用reflector命令直接获取中国最快的镜像源并保存到&#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist文件夹下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## 获取pacman镜像源</span><br><span class="line">reflector -c China -a 10 --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line">## 查看是否有edu.cn的链接信息</span><br><span class="line">cat /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
 
 
 
@@ -370,8 +311,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etcmkdir init.dfor i <span class="keyword">in</span> &#123;0,1,2,3,4,5,6&#125;; <span class="keyword">do</span> <span class="built_in">mkdir</span> rc<span class="variable">$i</span>.d; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
 <p>返回桌面, 执行安装脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 找到解压文件存放的位置cd /home/zhaozhao/Desktop/vmware-distrid# 执行安装脚本./vmware-install.pl</span><br></pre></td></tr></table></figure>
-
+<p>找到解压文件存放的位置<code>cd /home/zhaozhao/Desktop/vmware-distrid</code> 执行安装脚本<code>./vmware-install.pl</code></p>
 <p>重启计算机生效</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
@@ -385,6 +325,89 @@
       </categories>
       <tags>
         <tag>Arch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux磁盘分区</title>
+    <url>/posts/4761/</url>
+    <content><![CDATA[<h2 id="建立硬盘分区"><a href="#建立硬盘分区" class="headerlink" title="建立硬盘分区"></a>建立硬盘分区</h2><p>首先通过 <code>fdisk</code> 命令来查看自己磁盘的信息</p>
+<p>输入命令 <code>fdisk -l</code> </p>
+<p> <img src="/posts/4761/%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF.png"></p>
+<p><code>/dev/sda</code> 就是自己的磁盘名称（如果你有多个磁盘则需注意磁盘名称，以免后面分错区），后面还有磁盘的容量</p>
+<p>磁盘分区更具自己引导方式的不同分的区也不同</p>
+<blockquote>
+<p>根据自己的喜好来分区，下面是我自己使用的一套分区</p>
+</blockquote>
+<p>BIOS启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">boot – 1024 MB</span><br><span class="line"></span><br><span class="line">swap – 4 GB (min 512 MB)</span><br><span class="line"></span><br><span class="line">/ – ~ 1000 GB (remaining space)</span><br></pre></td></tr></table></figure>
+
+<p>UEFI启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/efi – 1024 MB</span><br><span class="line"></span><br><span class="line">swap – 4 GB (min 512 MB)</span><br><span class="line"></span><br><span class="line">/ – ~ 1000 GB (remaining space)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在终端输入命令 <code>cfdisk /dev/sda</code> ，后面的 <code>/dev/sdb</code> 就是你的磁盘名称</p>
+<p><strong>选择 <code>dos</code></strong></p>
+<p> <img src="/posts/4761/%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA.png"></p>
+<p> <img src="/posts/4761/%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F.jpg"></p>
+<p><strong>然后在选择 <code>primary</code> （主分区）</strong></p>
+<p>如果你是<code>BIOS</code>引导的，则<code>boot</code>分区的磁盘格式保持默认即可</p>
+<p>如果你是<code>UEFI</code>引导的，则需要把<code>boot</code>分区改为<code>Fat32</code>格式（因为我是用<code>UEFI</code>来引导的，所以我需要把<code>boot</code>分区改为<code>Fat32</code>）</p>
+<p> <img src="/posts/4761/boot%E5%88%86%E5%8C%BA.jpg"></p>
+<p><strong>选项 <code>Type</code> 为选择磁盘格式</strong></p>
+<p> <img src="/posts/4761/%E9%80%89%E6%8B%A9%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F.jpg"></p>
+<p> <img src="/posts/4761/boot%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F.jpg"></p>
+<h3 id="swap分区"><a href="#swap分区" class="headerlink" title="swap分区"></a>swap分区</h3><p><img src="/posts/4761/%E7%A1%AE%E8%AE%A4%E4%B8%BAswap%E6%A0%BC%E5%BC%8F.jpg"></p>
+<p><strong>写入分区</strong></p>
+<p> <img src="/posts/4761/%E4%BF%9D%E5%AD%98%E5%88%86%E5%8C%BA1.jpg" alt="保存分区"></p>
+<p> <strong>然后在输入 yes，回车，既可保存分区</strong></p>
+<p> <img src="/posts/4761/%E4%BF%9D%E5%AD%98%E5%88%86%E5%8C%BA.jpg"></p>
+<p><code>Quit</code> 表示退出</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>然后在使用 <code>fdisk -l</code> 查看自己的磁盘分区情况</p>
+<p> <img src="/posts/4761/%E5%88%86%E5%8C%BA%E6%83%85%E5%86%B5.png"></p>
+<p>可以看到 <code>/dev/sda</code> 磁盘已经被分为三个区了</p>
+<h2 id="格式化分区命令"><a href="#格式化分区命令" class="headerlink" title="格式化分区命令"></a>格式化分区命令</h2><blockquote>
+<p>上面的<code>fdisk</code>命令其实已经帮我们格式化好了的，这里主要讲解格式化命令</p>
+<p>如果你使用了 <code>fdisk</code> 命令来进行分区，则可以不需要使用下面的命令来进行格式化</p>
+</blockquote>
+<p>格式化根分区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda3</span><br></pre></td></tr></table></figure>
+
+<p>初始化swap分区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>格式化boot分区（<strong>基于UEFI引导</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.fat -F 32 /dev/sda1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>格式化boot分区（<strong>基于BIOS引导</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext2 /dev/sda1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><p><strong>注意：</strong> 挂载分区一定要遵循顺序，先挂载根（root）分区（到 <code>/mnt</code>），再挂载引导（boot）分区（到 <code>/mnt/boot</code> 或 <code>/mnt/efi</code>，如果单独分出来了的话），最后再挂载其他分区。否则您可能遇到安装完成后无法启动系统的问题。、</p>
+<p>挂载根分区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/sda3 /mnt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>下面这两行代码输入一行即可</strong></p>
+<p>挂载boot分区（<strong>对于UEFI引导而言</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount --<span class="built_in">mkdir</span> /dev/sda1 /mnt/boot</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>挂载boot分区（<strong>对于BIOS引导而言</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount --<span class="built_in">mkdir</span> /dev/sda1 /mnt/efi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>挂载swap分区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">swapon /dev/sda2</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
       </tags>
   </entry>
   <entry>
@@ -541,7 +564,7 @@
 <p>这个也是，要记下来，等下会用到<img src="/posts/30159/NAT_IP%E8%AE%BE%E7%BD%AE.png"></p>
 <p><img src="/posts/30159/VMwareIP%E5%9C%B0%E5%9D%80.png"></p>
 <hr>
-<h2 id="给服务器配置静态IP地址"><a href="#给服务器配置静态IP地址" class="headerlink" title="给服务器配置静态IP地址"></a>给服务器配置静态IP地址</h2><p>到现在系统无法使用网络是因为还没有设置IP，所以我们要自己配置一下，首先进入到 <code>cd /etc/sysconfig/network-scripts/</code> 目录下，然后输入命令 <code>ll</code> 或者 <code>ls</code> ，查看当前目录下的文件，我这里显示的是<code>ifcfg-ens33</code>，这个是网卡配置文件，有些网卡配置文件的名称有可能是<code>ifcfg-ens32</code>，也有可能是i<code>fcfg-ens1667777</code>，总之 <code>ifcfg-ens</code> 开头的这个文件，差不多就是自己服务器网卡的配置文件</p>
+<h2 id="给服务器配置静态IP地址"><a href="#给服务器配置静态IP地址" class="headerlink" title="给服务器配置静态IP地址"></a>给服务器配置静态IP地址</h2><p>到现在系统无法使用网络是因为还没有设置IP，所以我们要自己配置一下，首先进入到 <code>cd /etc/sysconfig/network-scripts/</code> 目录下，然后输入命令 <code>ll</code> 或者 <code>ls</code> ，查看当前目录下的文件，我这里显示的是<code>ifcfg-ens33</code>，这个是网卡配置文件，有些网卡配置文件的名称有可能是<code>ifcfg-ens32</code>，也有可能是<code>ifcfg-ens1667777</code>，总之 <code>ifcfg-ens</code> 开头的这个文件，差不多就是自己服务器网卡的配置文件</p>
 <p><img src="/posts/30159/%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png"></p>
 <p>用 <code>vi</code> 命令来编辑自己的网卡配置文件，有些网卡的名字可能不一样（可能是 <code>ifcfg-enp0s3</code> 之类的，但都是 <code>ifcfg</code> 开头的），我这里的网卡名称是 <code>ifcfg-ens33</code> ， 所以输入 <code>vi ifcfg-ens33</code> </p>
 <p><img src="/posts/30159/%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP.png"></p>
@@ -1242,15 +1265,23 @@
 <li><p>连接指定的WiFi热点 <code>sudo nmcli dev wifi connect &quot;WiFi名称&quot; password &quot;WiFi密码&quot; ifname wlan0</code>  （<code>wlan0</code>是无线网卡的名称）</p>
 </li>
 </ul>
-<h3 id="设置无线静态IP"><a href="#设置无线静态IP" class="headerlink" title="设置无线静态IP"></a>设置无线静态IP</h3><blockquote>
+<h3 id="设置无线静态IP"><a href="#设置无线静态IP" class="headerlink" title="设置无线静态IP"></a>设置无线静态IP</h3><p><strong>静态</strong>（STATIC）</p>
+<blockquote>
 <p>参考 <a href="https://www.cnblogs.com/floud/p/10545924.html">Ubuntu-Server18.04开启无线网卡并配置静态ip</a></p>
 </blockquote>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加以下代码（全部添加，添加的时候注意要删除注释）</span></span><br><span class="line"><span class="attr">wifis:</span></span><br><span class="line">       <span class="attr">wlp3s0:</span></span><br><span class="line">       		  <span class="comment"># IP</span></span><br><span class="line">              <span class="attr">addresses:</span> [<span class="number">192.168</span><span class="number">.0</span><span class="number">.130</span><span class="string">/23</span>]</span><br><span class="line">              <span class="comment"># 自动分配IP</span></span><br><span class="line">              <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br><span class="line">              <span class="comment"># 网关</span></span><br><span class="line">              <span class="attr">gateway4:</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">              <span class="attr">nameservers:</span></span><br><span class="line">              		   <span class="comment"># DNS_IP</span></span><br><span class="line">                       <span class="attr">addresses:</span> [<span class="number">114.114</span><span class="number">.114</span><span class="number">.114</span>,<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>]</span><br><span class="line">              <span class="attr">access-points:</span></span><br><span class="line">                       <span class="string">&quot;WIFI名称&quot;</span><span class="string">:</span></span><br><span class="line">                       <span class="attr">password:</span> <span class="string">&quot;WIFI密码&quot;</span></span><br><span class="line">       <span class="attr">version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<hr>
+<p><strong>动态</strong>（DHCP）</p>
+<p>终端中输入命令 <code>nmtui</code></p>
+<p>选择<code>Edit a connection</code></p>
+<p>选择自己的网卡，我这里是<code>ens33</code>，所以我就选择<code>ens33</code>，然后在选择旁边的<code>Edit</code></p>
+<p>进入到<code>Edit Connection</code>的设置里面，将选项移到<code>Automatically connect</code>，按空格</p>
+<p>在选择最下面一行的<code>OK</code>即可</p>
+<p>然后要确定网卡输入激活的状态，将选项移到右下角下面的<code>Back</code>即可回到最初的那个界面</p>
+<p>然后选择<code>Activate a connection</code>,回车</p>
+<p>看到<code>ens33</code>旁边有个<code>*</code>号说明已激活，如果没有，则按回车键即可，在将选项移到<code>Back</code>回车既可回到初始界面</p>
+<p>选择<code>Quit</code>即可退出</p>
 <h3 id="设置有线静态IP"><a href="#设置有线静态IP" class="headerlink" title="设置有线静态IP"></a>设置有线静态IP</h3><blockquote>
 <p>参考 [ubuntu18.04修改IP为静态IP并能够上网](<a href="https://blog.csdn.net/IT_SoftEngineer/article/details/112794427#:~:text=%E3%80%90Linux%E3%80%91ubuntu18.04%E4%BF%AE%E6%94%B9IP%E4%B8%BA%E9%9D%99%E6%80%81IP%E5%B9%B6%E8%83%BD%E5%A4%9F%E4%B8%8A%E7%BD%91%EF%BC%88%E5%82%BB%E7%93%9C%E5%BC%8F%E6%95%99%E5%AD%A6%EF%BC%89">https://blog.csdn.net/IT_SoftEngineer/article/details/112794427#:~:text=【Linux】ubuntu18.04修改IP为静态IP并能够上网（傻瓜式教学）</a> 1 1. 终端下输入 2 2. 在终端下输入 3,4. 修改yaml文件，添加如下内容 5 5. 保存配置，在终端下输入 6 6. 验证是否修改为静态IP，及是否可以上网)</p>
 </blockquote>
@@ -1337,6 +1368,32 @@
       </tags>
   </entry>
   <entry>
+    <title>美化Butterfly</title>
+    <url>/posts/16260/</url>
+    <content><![CDATA[<h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>在 <code>css</code> 中创建 <code>_custom</code> 文件夹，该文件夹是用来存放自己自定的<code>css</code>文件的</p>
+<p>在<code>_custom</code> 文件夹中创建一个<code>css</code>文件，名字随意</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 文章页样式 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="comment">/* 文章页边框 */</span></span><br><span class="line">    <span class="attr">--card-box-shadow</span>: false;</span><br><span class="line">    <span class="attr">--card-hover-box-shadow</span>: false;</span><br><span class="line">    <span class="comment">/* 设置按钮背景 */</span></span><br><span class="line">    <span class="attr">--btn-hover-color</span>: false;</span><br><span class="line">    <span class="attr">--btn-color</span>: false;</span><br><span class="line">    <span class="comment">/* 版权边框 */</span></span><br><span class="line">    <span class="attr">--light-grey</span>: false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置按钮背景-暗夜 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> &#123;</span><br><span class="line">    <span class="attr">--btn-hover-color</span>: false;</span><br><span class="line">    <span class="attr">--btn-color</span>: false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置按钮背景 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;light&#x27;</span>]</span> <span class="selector-id">#rightside</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">button</span>,</span><br><span class="line"><span class="selector-id">#rightside</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> <span class="selector-id">#rightside</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">button</span>,</span><br><span class="line"><span class="selector-id">#rightside</span>&gt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#121212</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 版权信息内边距 */</span></span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-copyright</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">8px</span> <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 暗夜背景 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="comment">/* background-color: rgba(0, 0, 0, 0.65); */</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#121212</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 导航栏背景色 */</span></span><br><span class="line"><span class="selector-id">#page-header</span><span class="selector-class">.not-top-img</span> <span class="selector-id">#nav</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span><br><span class="line">    <span class="comment">/* 模糊效果 */</span></span><br><span class="line">    <span class="comment">/* backdrop-filter: blur(10px); */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> <span class="selector-id">#page-header</span><span class="selector-class">.not-top-img</span> <span class="selector-id">#nav</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#121212</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#nav</span> <span class="selector-class">.menus_items</span> <span class="selector-class">.menus_item</span> <span class="selector-class">.menus_item_child</span> &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 页脚背景颜色 */</span></span><br><span class="line"><span class="selector-id">#footer</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff00</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 页脚文字颜色 */</span></span><br><span class="line"><span class="selector-id">#footer</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, .<span class="number">15</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 文章页内边距 */</span></span><br><span class="line"><span class="selector-class">.layout</span>&gt;<span class="selector-tag">div</span><span class="selector-pseudo">:first</span>-child<span class="selector-pseudo">:not</span>(<span class="selector-class">.recent-posts</span>) &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 时间抽页数按钮 */</span></span><br><span class="line"><span class="selector-id">#pagination</span> <span class="selector-class">.page-number</span><span class="selector-class">.current</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#00c4b6</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--white);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 时间抽页数按钮 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&#x27;dark&#x27;</span>]</span> <span class="selector-id">#pagination</span> <span class="selector-class">.page-number</span><span class="selector-class">.current</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#292d2f</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--white);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 图片圆角 */</span></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">6px</span> <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 下一页圆角 */</span></span><br><span class="line"><span class="selector-id">#pagination</span><span class="selector-class">.pagination-post</span> &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 文章目录圆角 */</span></span><br><span class="line"><span class="selector-id">#aside-content</span> <span class="selector-id">#card-toc</span> <span class="selector-class">.toc-content</span> <span class="selector-class">.toc-link</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 首页文章框高度 */</span></span><br><span class="line"><span class="selector-id">#recent-posts</span>&gt;<span class="selector-class">.recent-post-item</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">14em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 提示框圆角 */</span></span><br><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>css</code>文件夹下的 <code>index.styl</code>，添加 <code>@import &#39;_custom/*.css&#39;</code> 到 <code>// project</code> 中的最后一行</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">hexo-config</span>(<span class="string">&#x27;css_prefix&#x27;</span>)</span><br><span class="line">  <span class="keyword">@import</span> <span class="string">&#x27;nib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_third-party/normalize.min.css&#x27;</span></span><br><span class="line"><span class="comment">// project</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;var&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_global/*&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_highlight/highlight&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_page/*&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_layout/*&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_tags/*&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_mode/*&#x27;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_custom/*.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// search</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_search/index&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>在 <code>css</code> 中创建 <code>fonts</code> 文件夹，该文件夹是用来存放自己自定的字体文件的</p>
+<p>在<code>_custom</code> 文件夹中创建一个<code>css</code>文件，名字随意，然后引入 <code>fonts</code> 文件夹中的字体</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Cascadia&#x27;</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: swap;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;../../fonts/Cascadia.woff2&#x27;</span>) <span class="built_in">format</span>(<span class="string">&quot;truetype&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Medium&#x27;</span>;</span><br><span class="line">    <span class="attribute">font-display</span>: swap;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;../../fonts/Medium.woff2&#x27;</span>) <span class="built_in">format</span>(<span class="string">&quot;truetype&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&quot;Cascadia&quot;</span>, <span class="string">&quot;Medium&quot;</span>, <span class="string">&quot;HarmonyOS_Regular&quot;</span>, <span class="string">&quot;OPPOSans&quot;</span>, <span class="string">&quot;PingFang SC&quot;</span>, <span class="string">&quot;Microsoft YaHei&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>css</code>文件夹下的 <code>index.styl</code>，添加 <code>@import &#39;_custom/*.css&#39;</code> </p>
+<p>本博客的字体: <a href="https://wwb.lanzn.com/iXggx1r22nij">https://wwb.lanzn.com/iXggx1r22nij</a> 密码: <code>7cvi</code></p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly主题所需要的运行插件</title>
     <url>/posts/27760/</url>
     <content><![CDATA[<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
@@ -1385,6 +1442,100 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware安装Arch</title>
+    <url>/posts/55770/</url>
+    <content><![CDATA[<blockquote>
+<p>参考：</p>
+<p><a href="https://akilar.top/posts/f752c86d/">*使用Github Action实现全自动部署 | Akilarの糖果屋</a></p>
+<p><a href="https://blog.anheyu.com/posts/asdx.html#Github-Action-%E7%AE%80%E4%BB%8B">*使用 Github Action 自动部署 | 安知鱼 (anheyu.com)</a></p>
+<p><a href="https://github.com/yanglbme/gitee-pages-action">yanglbme&#x2F;gitee-pages-action: 🤖  无须人为干预，由 GitHub Action 自动部署 Gitee Pages</a></p>
+<p><a href="https://github.com/Yikun/hub-mirror-action?tab=readme-ov-file#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0">Yikun&#x2F;hub-mirror-action: 一个Github Action，用于在Github和Gitee之间同步代码</a></p>
+<p><a href="https://blog.csdn.net/ibigboy/article/details/126402267">GitHub部署vuepress报错The deploy step encountered an..The process &#x2F;usr&#x2F;bin&#x2F;git failed with exit code 128</a></p>
+<p><a href="https://github.com/JamesIves/github-pages-deploy-action">JamesIves&#x2F;github-pages-deploy-action: 🚀</a></p>
+<p><a href="https://mrseawave.github.io/blogs/articles/2021/12/17/github-actions-cache/">GitHub Actions 如何使用缓存 - Sea’s Blog</a></p>
+<p><a href="https://github.com/actions/cache">actions&#x2F;cache: Cache dependencies and build outputs in GitHub Actions</a></p>
+</blockquote>
+<h2 id="部署前准备"><a href="#部署前准备" class="headerlink" title="部署前准备"></a>部署前准备</h2><p><code>TOKEN_GITHUB</code> ：GitHub的 <code>token</code> （私人令牌的密钥只会显示一次，如果忘了，那只能重新创建了）</p>
+<blockquote>
+<p>打开GitHub Token的方法：点击<code>自己的Github头像 --&gt; Settings --&gt;  Developer settings --&gt; Personal access tokens --&gt; Tokens(classic) --&gt; Generate new token --&gt; Generate new token(classic)</code> </p>
+<p><code>Note</code> 那里是自己Token的名字，名字可以随便取</p>
+<p><code>Expiration</code> 是自己令牌的有效期，选择 <code>No expiration</code> 永不过期</p>
+<p>下面的 <code>Select scopes</code> 那里选择 <code>repo</code>以及其子项，然后在选择 <code>workflow</code></p>
+<p><strong>一切完成之后点击最下面的 <code>Generate token</code> 即可生成自己的 GitHub Token，记住GitHub Token只会显示一次，请务必要记住，否则自能重新生成</strong></p>
+</blockquote>
+<p><code>TOKEN_GITEE</code> ：Gitee的 <code>token</code> （私人令牌的密钥只会显示一次，如果忘了，那只能重新创建了）</p>
+<blockquote>
+<p>设置Gitee Token的方法：点击<code>自己的Gitee头像，点击设置 --&gt; 点击私人令牌 --&gt; 点击生成新令牌</code></p>
+<p>私人令牌描述就是自己令牌的名字，名字随便取，下面的权限选择 <code>user_info</code> 和 <code>projects</code></p>
+<p><strong>最后点击提交即可生成自己的 Gitee Token，记住Gitee Token只会显示一次，请务必要记住，否则自能重新生成</strong></p>
+</blockquote>
+<p><code>GIT_NAME</code> ：自己Git名称 ，在设置SSH密钥时使用的Git名称</p>
+<p><code>GIT_EMAIL</code> ：自己的Git邮箱，在设置SSH密钥时使用的Git邮箱</p>
+<p><code>GITEE_PASSWORD</code> ：Gitee 密码</p>
+<blockquote>
+<p><strong>以上的这些信息要部署到自己的GitHub Action仓库中，所以建议将这些信息存放在<code>txt文本</code>中，方便整理添加</strong></p>
+</blockquote>
+<p><strong>关注Gitee公众号</strong>：因为GitHub的服务器在国外，所以登录Gitee会提示异地登录验证码；关注Gitee公众号，并且在公众号中绑定自己的Gitee账号，这样每当GitHub登录自己的Gitee时，就不需要异地登陆验证码了，而是直接在公众号中提醒你</p>
+<p><strong>GitHub Action权限设置</strong>：在GitHub Action的仓库中，打开 <code>Settings --&gt; Actions --&gt; General</code> ，找到 <code>Workflow permissions</code> 选项，选择 <code>Read and write permissions</code> ，以及 <code>Allow GitHub Actions to create and approve pull requests</code> ，然后在点击下面的<code>Save</code>按钮</p>
+<p><strong>设置秘密文件</strong>：将上面准备的 <code>TOKEN_GITHUB</code> ，<code>TOKEN_GITEE</code> ，<code>GIT_NAME</code> ，<code>GIT_EMAIL</code> ，<code>GITEE_PASSWORD</code> 添加到GitHub Action仓库中的 <code>Repository secrets</code> 中（在<code>Secrets and variables --&gt; Actions</code> 中，找到 <code>Repository secrets</code> 选项，点击 <code>New repository secret</code> 添加），<strong>总共五个秘密文件</strong></p>
+<p>创建一个用来执行 <code>GitHub Action</code> 的仓库，私有还是公开都可以，推荐私有，这样安全一点</p>
+<h2 id="编写GitHub-Action配置文件"><a href="#编写GitHub-Action配置文件" class="headerlink" title="编写GitHub Action配置文件"></a>编写GitHub Action配置文件</h2><blockquote>
+<p>创建文件夹 <code>.github</code>，然后在 <code>.github</code> 里面创建文件夹 <code>workflows</code> ，在 <code>workflows</code> 中创建文件 <code>xxx.yml</code> ，<code>yml</code> 文件的名字可以随便取，然后在该文件里面编写执行语句</p>
+<p>注意<code>yml</code>语句要对齐</p>
+</blockquote>
+<p>基础的配置，选择执行系统，安装博客所需的环境</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 触发条件：在 push 到 master 分支后</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>, <span class="string">master</span>]</span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="comment"># 服务器环境：最新版 Ubuntu</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># 生成hexo文件</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">检查分支</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16.x&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 将Linux的时区改为上海</span></span><br><span class="line"><span class="string">          export TZ=&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">          # 安装 hexo 框架</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>安装博客所需的插件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 缓存hexo 插件，这样下次部署的时候就不用重新下载hexo插件了</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">缓存</span> <span class="string">Hexo</span></span><br><span class="line">    <span class="attr">id:</span> <span class="string">cache-npm</span></span><br><span class="line">    <span class="attr">uses:</span> <span class="string">actions/cache@v3</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">      <span class="attr">cache-name:</span> <span class="string">cache-node-modules</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="comment"># 选择要缓存的文件夹</span></span><br><span class="line">      <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">      <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-build-$&#123;&#123;</span> <span class="string">env.cache-name</span> <span class="string">&#125;&#125;-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        $&#123;&#123; runner.os &#125;&#125;-build-$&#123;&#123; env.cache-name &#125;&#125;-</span></span><br><span class="line"><span class="string">        $&#123;&#123; runner.os &#125;&#125;-build-</span></span><br><span class="line"><span class="string">        $&#123;&#123; runner.os &#125;&#125;-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装依赖</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.cache-npm.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      # 安装gulp压缩插件</span></span><br><span class="line"><span class="string">      npm install gulp-cli -g</span></span><br><span class="line"><span class="string">      npm install --save</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">生成静态文件</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      hexo clean</span></span><br><span class="line"><span class="string">      hexo generate</span></span><br><span class="line"><span class="string">      gulp</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果你不知道<code>gulp</code>插件的用法，建议去看看这篇博客<a href="https://akilar.top/posts/49b73b87/">使用gulp压缩博客静态资源 | Akilarの糖果屋</a></p>
+<p>如果你觉得麻烦，可以不下载<code>gulp</code>插件，删掉关于 <code>gulp</code> 的语句即可</p>
+<p>如果你的根目录中没有<code>gulp</code>的执行文件（也就是 <code>gulpfile.js</code> ），那么GitHub Action运行<code>gulp</code>时则会报错，这点须知</p>
+</blockquote>
+<hr>
+<p>部署到<code>Git</code>仓库中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署到Github</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">JamesIves/github-pages-deploy-action@v4</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.TOKEN_GITHUB</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">repository-name:</span> <span class="string">mao-design/mao-design.github.io</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line">    <span class="attr">folder:</span> <span class="string">public</span></span><br><span class="line">    <span class="attr">commit-message:</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; github.event.head_commit.message &#125;&#125;</span> Updated By Github Actions&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署到Gitee</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    cd ./public</span></span><br><span class="line"><span class="string">    git init</span></span><br><span class="line"><span class="string">    git config --global user.name &#x27;$&#123;&#123; secrets.GIT_NAME &#125;&#125;&#x27;</span></span><br><span class="line"><span class="string">    git config --global user.email &#x27;$&#123;&#123; secrets.GIT_EMAIL &#125;&#125;&#x27;</span></span><br><span class="line"><span class="string">    git add .</span></span><br><span class="line"><span class="string">    git commit -m &quot;$&#123;&#123; github.event.head_commit.message &#125;&#125; Updated By Github Actions&quot;</span></span><br><span class="line"><span class="string">    # 注意：我的git名和gitee用户名是一样的，所以这里我直接使用GIT_NAME，如果你的不一样记得替换</span></span><br><span class="line"><span class="string">    # 这里的GIT_NAME主要表示的是gitee用户名</span></span><br><span class="line"><span class="string">    git remote add origin https://$&#123;&#123; secrets.GIT_NAME &#125;&#125;:$&#123;&#123; secrets.TOKEN_GITEE &#125;&#125;@gitee.com/$&#123;&#123; secrets.GIT_NAME &#125;&#125;/要传到那个仓库就写那个仓库的名字.git</span></span><br><span class="line"><span class="string">    git branch -m master</span></span><br><span class="line"><span class="string">    git push -f origin master</span></span><br><span class="line"><span class="string"></span>    </span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署</span> <span class="string">Gitee</span> <span class="string">Pages</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">yanglbme/gitee-pages-action@main</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="comment"># 注意替换为你的 Gitee 用户名</span></span><br><span class="line">    <span class="attr">gitee-username:</span> <span class="string">mao-design</span></span><br><span class="line">    <span class="comment"># 就是上面添加的GITEE_PASSWORD</span></span><br><span class="line">    <span class="attr">gitee-password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="comment"># 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错</span></span><br><span class="line">    <span class="attr">gitee-repo:</span> <span class="string">mao-design/mao-design</span></span><br><span class="line">    <span class="comment"># 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>脚本最终的效果</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 触发条件：在 push 到 master 分支后</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>, <span class="string">master</span>]</span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="comment"># 服务器环境：最新版 Ubuntu</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># 生成hexo文件</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">检查分支</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16.x&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          export TZ=&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span>        <span class="comment"># 缓存hexo文件，这样以后速度就快了</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">缓存</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">cache-npm</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v3</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">cache-name:</span> <span class="string">cache-node-modules</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-build-$&#123;&#123;</span> <span class="string">env.cache-name</span> <span class="string">&#125;&#125;-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-build-$&#123;&#123; env.cache-name &#125;&#125;-</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-build-</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装依赖</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.cache-npm.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install gulp-cli -g #全局安装gulp</span></span><br><span class="line"><span class="string">          npm install --save</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">生成静态文件</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean</span></span><br><span class="line"><span class="string">          hexo generate</span></span><br><span class="line"><span class="string">          gulp</span></span><br><span class="line"><span class="string"></span>      </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署到Github</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">JamesIves/github-pages-deploy-action@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.TOKEN_GITHUB</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 要传到那个仓库就写那个仓库的名字，要写全称，注意大小写</span></span><br><span class="line">          <span class="comment"># GitHub用户名/仓库名</span></span><br><span class="line">          <span class="attr">repository-name:</span> <span class="string">mao-design/mao-design.github.io</span></span><br><span class="line">          <span class="comment"># 传到要部署的main分支中</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line">          <span class="comment"># 部署public下的所有文件</span></span><br><span class="line">          <span class="attr">folder:</span> <span class="string">public</span></span><br><span class="line">          <span class="attr">commit-message:</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; github.event.head_commit.message &#125;&#125;</span> Updated By Github Actions&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">#此处master:master 指从本地的master分支提交到远程仓库的master分支，若远程仓库没有对应分支则新建一个。如有其他需要，可以根据自己的需求更改。</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署到Gitee</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          cd ./public</span></span><br><span class="line"><span class="string">          git init</span></span><br><span class="line"><span class="string">          git config --global user.name &#x27;$&#123;&#123; secrets.GIT_NAME &#125;&#125;&#x27;</span></span><br><span class="line"><span class="string">          git config --global user.email &#x27;$&#123;&#123; secrets.GIT_EMAIL &#125;&#125;&#x27;</span></span><br><span class="line"><span class="string">          git add .</span></span><br><span class="line"><span class="string">          git commit -m &quot;$&#123;&#123; github.event.head_commit.message &#125;&#125; Updated By Github Actions&quot;</span></span><br><span class="line"><span class="string">          # 注意：我的git名和gitee用户名是一样的，所以这里我直接使用GIT_NAME，如果你的不一样记得替换</span></span><br><span class="line"><span class="string">          # 这里的GIT_NAME主要表示的是gitee用户名</span></span><br><span class="line"><span class="string">          git remote add origin https://$&#123;&#123; secrets.GIT_NAME &#125;&#125;:$&#123;&#123; secrets.TOKEN_GITEE &#125;&#125;@gitee.com/$&#123;&#123; secrets.GIT_NAME &#125;&#125;/要传到那个仓库就写那个仓库的名字.git</span></span><br><span class="line"><span class="string">          git branch -m master</span></span><br><span class="line"><span class="string">          git push -f origin master</span></span><br><span class="line"><span class="string"></span>          </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署</span> <span class="string">Gitee</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">yanglbme/gitee-pages-action@main</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 用户名</span></span><br><span class="line">          <span class="attr">gitee-username:</span> <span class="string">mao-design</span></span><br><span class="line">          <span class="comment"># 就是上面添加的GITEE_PASSWORD</span></span><br><span class="line">          <span class="attr">gitee-password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错</span></span><br><span class="line">          <span class="attr">gitee-repo:</span> <span class="string">mao-design/mao-design</span></span><br><span class="line">          <span class="comment"># 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="部署GitHub-Action"><a href="#部署GitHub-Action" class="headerlink" title="部署GitHub Action"></a>部署GitHub Action</h2><p>将自己的 <code>.github</code> 文件夹和自己的项目文件放在一起，然后一起上传到Github即可，GitHub检测到 <code>.github</code> 会自动执行里面的脚本</p>
+<p>点击 <code>Pull requests</code> 旁边的 <code>Actions</code> 即可查看 <code>GitHub Action</code> 的运行情况</p>
+<p><code>GitHub Action</code>运行完成之后显示一个绿色的<code>√</code> ，则表示运行成功</p>
+<p>如果没有运行成功的话，则点击进去查看报错情况，在自己百度，我上面推荐的那些博客说的也比较详细的，推荐去看看</p>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub Action</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建Mkdocs博客</title>
+    <url>/posts/607/</url>
+    <content><![CDATA[<p>具体教程：<a href="https://mao-design.gitee.io/notes/">主页 - Mao-Design的笔记 (gitee.io)</a></p>
+<p>以下是我的 <code>mkdocs.yml</code> 配置代码，大家按需写入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主题标题</span></span><br><span class="line">site_name: Mao-Design的笔记</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">theme:</span><br><span class="line">  <span class="comment"># 主题名字</span></span><br><span class="line">  name: material</span><br><span class="line">  <span class="comment"># 网页显示语言</span></span><br><span class="line">  language: zh</span><br><span class="line">  <span class="comment"># 网页的title图标</span></span><br><span class="line">  favicon: /add/img/favicon.png</span><br><span class="line">  icon:</span><br><span class="line">      <span class="comment"># logo图标查询网址：https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search</span></span><br><span class="line">      logo: simple/gitlab</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 暗夜模式</span></span><br><span class="line">  palette:  </span><br><span class="line">    <span class="comment"># 切换到亮色</span></span><br><span class="line">    - scheme: default</span><br><span class="line">      <span class="comment"># 主要颜色</span></span><br><span class="line">      primary: pink</span><br><span class="line">      <span class="comment"># 强调颜色</span></span><br><span class="line">      accent: pink</span><br><span class="line">      toggle:</span><br><span class="line">          icon: material/weather-night</span><br><span class="line">          name: 暗夜模式</span><br><span class="line">    <span class="comment"># 切换到暗色</span></span><br><span class="line">    - scheme: slate</span><br><span class="line">      <span class="comment"># 主要颜色</span></span><br><span class="line">      primary: black</span><br><span class="line">      <span class="comment"># 强调颜色</span></span><br><span class="line">      <span class="comment"># accent: pink</span></span><br><span class="line">      toggle:</span><br><span class="line">          icon: material/weather-sunny</span><br><span class="line">          name: 白天模式</span><br><span class="line"></span><br><span class="line">  features:</span><br><span class="line">    <span class="comment"># 显示顶部目录</span></span><br><span class="line">    - navigation.tabs</span><br><span class="line">    <span class="comment"># 固定顶部目录</span></span><br><span class="line">    - navigation.tabs.sticky</span><br><span class="line">    <span class="comment"># 返回顶部按钮</span></span><br><span class="line">    - navigation.top</span><br><span class="line">    <span class="comment"># 相当于懒加载，详细说明：https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=navigation#navigation-pruning</span></span><br><span class="line">    - navigation.prune</span><br><span class="line">    <span class="comment"># 复制代码</span></span><br><span class="line">    - content.code.copy</span><br><span class="line">    <span class="comment"># 切换文章</span></span><br><span class="line">    - navigation.footer</span><br><span class="line">    <span class="comment"># 滚动的时候侧边目录自动跟随</span></span><br><span class="line">    - toc.follow</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">markdown_extensions:</span><br><span class="line">  - toc:</span><br><span class="line">      <span class="comment"># 点击目录会显示提示图标</span></span><br><span class="line">      permalink: <span class="literal">true</span></span><br><span class="line">      <span class="comment"># 目录深度</span></span><br><span class="line">      toc_depth: 4</span><br><span class="line">  <span class="comment"># 代码块设置</span></span><br><span class="line">  - pymdownx.highlight:</span><br><span class="line"><span class="comment">#       代码语言名称</span></span><br><span class="line"><span class="comment">#       auto_title: true</span></span><br><span class="line"><span class="comment">#       行号</span></span><br><span class="line">      linenums: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 代码高亮</span></span><br><span class="line">  - pymdownx.superfences</span><br><span class="line">  <span class="comment"># 自动识别链接</span></span><br><span class="line">  - pymdownx.magiclink</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">plugins:</span><br><span class="line">  <span class="comment"># 图片缩放，要下载 pip install mkdocs-glightbox</span></span><br><span class="line">  - glightbox</span><br><span class="line">  <span class="comment"># 搜索</span></span><br><span class="line">  - search</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 页脚设置</span></span><br><span class="line">extra:</span><br><span class="line">  social:</span><br><span class="line">    - icon: fontawesome/solid/blog</span><br><span class="line">      <span class="built_in">link</span>: https://mao-design.gitee.io/</span><br><span class="line">      name: Mao-Design的博客</span><br><span class="line">    - icon: simple/github</span><br><span class="line">      <span class="built_in">link</span>: https://github.com/mao-design</span><br><span class="line">      name: GitHub</span><br><span class="line">    - icon: simple/gitee</span><br><span class="line">      <span class="built_in">link</span>: https://gitee.com/mao-design</span><br><span class="line">      name: Gitee</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 版权信息</span></span><br><span class="line"><span class="comment">#copyright: Copyright &amp;copy; 2024 - 2024 Mao-Design</span></span><br><span class="line">copyright: Copyright &amp;copy; 2024 Mao-Design</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Mkdocs</tag>
       </tags>
   </entry>
   <entry>
@@ -1487,6 +1638,23 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美化Mkdocs</title>
+    <url>/posts/34328/</url>
+    <content><![CDATA[<p>在 <code>docs</code> 文件夹下创建一个 <code>css</code> 文件，名字随意，样式如下</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* html &#123;</span></span><br><span class="line"><span class="comment">	动画样式</span></span><br><span class="line"><span class="comment">	scroll-behavior: smooth;</span></span><br><span class="line"><span class="comment">&#125; */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 提醒栏样式 */</span></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=pink]</span> <span class="selector-class">.md-typeset</span> <span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#ababab33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=black]</span> <span class="selector-class">.md-typeset</span> <span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#5e5e5e33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[dir=ltr]</span> <span class="selector-class">.md-typeset</span> <span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0.1px</span> <span class="number">15px</span>;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 代码块背景色 */</span></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=pink]</span> <span class="selector-class">.md-typeset</span> <span class="selector-class">.highlighttable</span>&gt;<span class="selector-tag">tbody</span>&gt;<span class="selector-tag">tr</span>&gt;<span class="selector-class">.code</span>&gt;<span class="selector-tag">div</span>&gt;pre&gt;<span class="selector-tag">code</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">0px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">0px</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#ababab33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=pink]</span> <span class="selector-class">.highlighttable</span> <span class="selector-class">.linenos</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">5px</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#ababab33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=black]</span> <span class="selector-class">.md-typeset</span> <span class="selector-class">.highlighttable</span>&gt;<span class="selector-tag">tbody</span>&gt;<span class="selector-tag">tr</span>&gt;<span class="selector-class">.code</span>&gt;<span class="selector-tag">div</span>&gt;pre&gt;<span class="selector-tag">code</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">0px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">0px</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#5e5e5e33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=black]</span> <span class="selector-class">.highlighttable</span> <span class="selector-class">.linenos</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">5px</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#5e5e5e33</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 回到顶部标签背景色 */</span></span><br><span class="line"><span class="selector-class">.md-top</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 代码背景色 */</span></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=pink]</span> <span class="selector-class">.md-typeset</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#dcdcdc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[data-md-color-primary=black]</span> <span class="selector-class">.md-typeset</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#484747</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 复制按钮颜色 */</span></span><br><span class="line"><span class="selector-class">.md-clipboard</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#00000000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 标题样式 */</span></span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h1</span>,</span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">	<span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 标题一的外边距，标题一 外边距不需要太大 */</span></span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">	<span class="attribute">margin</span>: -<span class="number">0.12em</span> <span class="number">0</span> .<span class="number">64em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 标题之间的外边距 */</span></span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h2</span>,</span><br><span class="line"><span class="selector-class">.md-typeset</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">2em</span> <span class="number">0</span> .<span class="number">64em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>mkdocs.yml</code> 中引入该<code>css</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加新css样式</span></span><br><span class="line"><span class="attr">extra_css:</span></span><br><span class="line">    <span class="comment"># 输入css文件的路径，以 docs 文件夹为根目录</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">extra.css</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Mkdocs</tag>
       </tags>
   </entry>
   <entry>
