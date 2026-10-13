@@ -1,0 +1,1 @@
+function n(){for(let e of document.querySelectorAll(".global-graph-outer.active")){e.classList.remove("active");let t=e.closest(".sidebar");t&&(t.style.zIndex="")}}document.addEventListener("prenav",n);document.addEventListener("nav",n);

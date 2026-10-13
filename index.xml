@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Mao-Design的博客</title>
+      <link>https://mao-design.github.io</link>
+      <description>Last 10 notes on Mao-Design的博客</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>时间线</title>
+    <link>https://mao-design.github.io/%E6%97%B6%E9%97%B4%E7%BA%BF.base</link>
+    <guid>https://mao-design.github.io/%E6%97%B6%E9%97%B4%E7%BA%BF.base</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Tue, 13 Oct 2026 08:48:01 GMT</pubDate>
+  </item><item>
+    <title>标签索引</title>
+    <link>https://mao-design.github.io/tags/</link>
+    <guid>https://mao-design.github.io/tags/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Tue, 13 Oct 2026 08:48:01 GMT</pubDate>
+  </item><item>
+    <title>Java-AOP实现接口限流</title>
+    <link>https://mao-design.github.io/java-aop%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81</link>
+    <guid>https://mao-design.github.io/java-aop%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81</guid>
+    <description><![CDATA[ GitHub链接：Java_Code_template/API_Rate_Limiting at main · mao-design/Java_Code_template 技术栈：Redis、AOP、Lua Spring AOP 拦截接口 → 生成 Redis Key → Lua + Redis ZSet 做滑动窗口计数 → 超限返回 429。 三者真正的区别是： Redis Key 里的“identity（身份）”怎么生成。 可以先用一张表理解： 类型按什么分组典型用途GLOBAL整个接口一个桶保护接口总流量IP每个 IP 一个桶防单个客户端疯狂请求SPELSpEL 计算结果一个桶按用户、手... ]]></description>
+    <pubDate>Tue, 13 Oct 2026 08:47:20 GMT</pubDate>
+  </item><item>
+    <title>Java-RabbitMQ异步支付</title>
+    <link>https://mao-design.github.io/java-rabbitmq%E5%BC%82%E6%AD%A5%E6%94%AF%E4%BB%98</link>
+    <guid>https://mao-design.github.io/java-rabbitmq%E5%BC%82%E6%AD%A5%E6%94%AF%E4%BB%98</guid>
+    <description><![CDATA[ GitHub链接：Java_Code_template/RabbitMQ-Asynchronous-Payment at main · mao-design/Java_Code_template. ]]></description>
+    <pubDate>Tue, 13 Oct 2026 08:47:20 GMT</pubDate>
+  </item><item>
+    <title>Java-双JWT登录认证</title>
+    <link>https://mao-design.github.io/java-%E5%8F%8Cjwt%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81</link>
+    <guid>https://mao-design.github.io/java-%E5%8F%8Cjwt%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81</guid>
+    <description><![CDATA[ GitHub链接：Java_Code_template/Login at main · mao-design/Java_Code_template 1. ]]></description>
+    <pubDate>Tue, 13 Oct 2026 08:47:20 GMT</pubDate>
+  </item><item>
+    <title>Spring AI Alibaba-AI客服</title>
+    <link>https://mao-design.github.io/spring-ai-alibaba-ai%E5%AE%A2%E6%9C%8D</link>
+    <guid>https://mao-design.github.io/spring-ai-alibaba-ai%E5%AE%A2%E6%9C%8D</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Mon, 12 Oct 2026 04:50:41 GMT</pubDate>
+  </item><item>
+    <title>CloudFlare-ImgBed免费图床搭建</title>
+    <link>https://mao-design.github.io/cloudflare-imgbed%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA</link>
+    <guid>https://mao-design.github.io/cloudflare-imgbed%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA</guid>
+    <description><![CDATA[ 官方教程：cfbed.sanyue.de/ 项目地址：github.com/MarSeventh/CloudFlare-ImgBed 演示站点（密码：cfbed）：cfbed.1314883.xyz/ 🗑设置Cloudflare R2 转载：CloudFlare ImgBed - 开源文件托管解决方案 3.1 创建 R2 存储桶 登录 Cloudflare Dashboard 选择 “R2 存储对象” 点击 “创建存储桶” 输入存储桶名称（全局唯一） 选择存储区域 点击 “创建存储桶” 📂第一步：Fork 项目 转载：CloudFlare ImgBed - 开源文件托管解决方案 访问 Cl... ]]></description>
+    <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Redis 缓存</title>
+    <link>https://mao-design.github.io/redis-%E7%BC%93%E5%AD%98</link>
+    <guid>https://mao-design.github.io/redis-%E7%BC%93%E5%AD%98</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Fri, 02 Oct 2026 17:36:44 GMT</pubDate>
+  </item><item>
+    <title>欢迎来到我的博客</title>
+    <link>https://mao-design.github.io/</link>
+    <guid>https://mao-design.github.io/</guid>
+    <description><![CDATA[ 欢迎 联系我 邮箱：mao-design@qq.com. ]]></description>
+    <pubDate>Thu, 27 Aug 2026 16:19:19 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
